@@ -8,6 +8,7 @@ export const privateRoutes = {
 
 export const publicRoutes = {
   HOME: '/',
+  PRODUCT_DETAIL: '/product/:id',
   LOGIN: '/login',
   PASSWORD_RECOVERY: '/password-recovery',
   SIGNUP: '/signup'

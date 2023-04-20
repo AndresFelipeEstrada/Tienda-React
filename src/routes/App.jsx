@@ -21,6 +21,7 @@ import { useAuth } from '../hooks/useAuth'
 
 import { privateRoutes, publicRoutes } from './routes'
 import AuthGuard from '../components/AuthGuard/auth.guard'
+import ProductDetail from '../pages/ProductDetail'
 
 function App () {
   const { isAuthenticated } = useAuth()
@@ -32,6 +33,7 @@ function App () {
           <Layout>
             <Routes>
               <Route path={publicRoutes.HOME} element={<Home />} />
+              <Route path={publicRoutes.PRODUCT_DETAIL} element={<ProductDetail />} />
               <Route path={publicRoutes.LOGIN} element={isAuthenticated ? <Navigate to='/' /> : <Login />} />
               <Route path={publicRoutes.SIGNUP} element={<CreateAccount />} />
               <Route path={publicRoutes.PASSWORD_RECOVERY} element={<PasswordRecovery />} />
