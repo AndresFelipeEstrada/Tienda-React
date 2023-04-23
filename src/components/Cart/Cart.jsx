@@ -1,25 +1,13 @@
 import './cart.css'
-import { useCallback, useState } from 'react'
 import shoppingCart from '@icons/icon_shopping_cart.svg'
 import useCart from '../../hooks/useCart'
 import Menu from '../Menu/Menu'
 import MyOrder from '../../containers/MyOrder'
+import useToggle from '../../hooks/useToggle'
 
 const Cart = () => {
   const { cart } = useCart()
-
-  const [toggle, setToggle] = useState(false)
-  const [toggleOrders, setToggleOrders] = useState(false)
-
-  const handleOrder = useCallback(() => {
-    setToggle(!toggle)
-    setToggleOrders(false)
-  }, [toggle])
-
-  const handleCart = useCallback(() => {
-    setToggleOrders(!toggleOrders)
-    setToggle(false)
-  }, [toggleOrders])
+  const { toggle, toggleOrders, setToggleOrders, handleOrder, handleCart } = useToggle()
 
   return (
     <>
@@ -33,8 +21,8 @@ const Cart = () => {
         >
           <img src={shoppingCart} alt='shopping cart' />
           {
-                cart.length > 0 && <div>{cart.length}</div>
-            }
+            cart.length > 0 && <div>{cart.length}</div>
+          }
         </div>
 
       </div>

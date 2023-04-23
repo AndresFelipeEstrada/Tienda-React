@@ -15,6 +15,7 @@ const ProductItem = ({ productInCart, product }) => {
       </Link>
       <div className='px-4 py-3 w-72'>
         <p className='text-lg font-bold text-black truncate block capitalize'>{product.title}</p>
+        <p className='text-lg font-semibold text-black cursor-auto my-3'>{product.category.name}</p>
         <div className='flex items-center'>
           <p className='text-lg font-semibold text-black cursor-auto my-3'>${product.price}</p>
           <del>
@@ -31,8 +32,8 @@ const ProductItem = ({ productInCart, product }) => {
             >
               <img
                 src={
-          productInCart ? removeFromCartIcon : AddToCartIcon
-         } alt='add to cart icon'
+                  productInCart ? removeFromCartIcon : AddToCartIcon
+                } alt='add to cart icon'
               />
             </button>
           </div>
