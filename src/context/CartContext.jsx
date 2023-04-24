@@ -2,19 +2,37 @@ import { createContext, useCallback, useMemo, useState } from 'react'
 import PropTypes from 'prop-types'
 import { toast } from 'sonner'
 
+const KEY = 'products'
+
 export const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([])
+  const getInitialCart = () => {
+    try {
+      const storedValue = window.localStorage.getItem(KEY)
+      return storedValue ? JSON.parse(storedValue) : []
+    } catch (error) {
+      return []
+    }
+  }
+
+  const [cart, setCart] = useState(getInitialCart())
 
   const addToCart = useCallback(product => {
     const nuevosItems = [...cart, product]
     setCart(nuevosItems)
+    window.localStorage.setItem(KEY, JSON.stringify(nuevosItems))
     toast.success('Producto agregado al carrito')
   }, [cart])
 
   const removeFromCart = useCallback(product => {
-    setCart(prevState => prevState.filter((item) => item.id !== product.id))
+    setCart(prevState => prevState.filter(item => item.id !== product.id))
+
+    let cartItems = JSON.parse(window.localStorage.getItem(KEY))
+    cartItems = cartItems.filter(item => item.id !== product.id)
+
+    window.localStorage.setItem(KEY, JSON.stringify(cartItems))
+
     toast.error('Producto eliminado del carrito')
   }, [cart])
 
