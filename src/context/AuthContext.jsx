@@ -10,7 +10,6 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = useCallback(() => {
     window.localStorage.setItem(MY_AUTH, true)
-    console.log('logueado')
     setIsAuthenticated(true)
   }, [])
 

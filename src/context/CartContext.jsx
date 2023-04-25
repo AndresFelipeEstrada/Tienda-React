@@ -6,7 +6,7 @@ const KEY = 'products'
 
 export const CartContext = createContext()
 
-const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   const getInitialCart = () => {
     try {
       const storedValue = window.localStorage.getItem(KEY)
@@ -21,7 +21,9 @@ const CartProvider = ({ children }) => {
   const addToCart = useCallback(product => {
     const nuevosItems = [...cart, product]
     setCart(nuevosItems)
+
     window.localStorage.setItem(KEY, JSON.stringify(nuevosItems))
+
     toast.success('Producto agregado al carrito')
   }, [cart])
 
@@ -52,14 +54,10 @@ const CartProvider = ({ children }) => {
       removeFromCart,
       sumTotal,
       productInCart
-    }), [cart, addToCart, removeFromCart, sumTotal, productInCart]
-  )
+    }), [cart, addToCart, removeFromCart, sumTotal, productInCart])
 
   return (
-
-    <CartContext.Provider
-      value={value}
-    >
+    <CartContext.Provider value={value}>
       {children}
     </CartContext.Provider>
   )
@@ -68,5 +66,3 @@ const CartProvider = ({ children }) => {
 CartProvider.prototype = {
   children: PropTypes.object
 }
-
-export default CartProvider

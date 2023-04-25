@@ -15,7 +15,7 @@ import Checkout from '../pages/Checkout'
 import Orders from '../pages/Orders'
 import NotFound from '../pages/NotFound'
 
-import CartProvider from '../context/CartContext'
+import { CartProvider } from '../context/CartContext'
 import { FiltersProvider } from '../context/FilterContext'
 import { useAuth } from '../hooks/useAuth'
 

@@ -3,11 +3,20 @@ import AddToCartIcon from '@icons/bt_add_to_cart.svg'
 import removeFromCartIcon from '@icons/bt_added_to_cart.svg'
 
 import useCart from '../../hooks/useCart'
-import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
+import { Link, useNavigate } from 'react-router-dom'
 
 const ProductItem = ({ productInCart, product }) => {
   const { addToCart, removeFromCart } = useCart()
+  const { isAuthenticated } = useAuth()
+  const navigate = useNavigate()
 
+  const handleClick = () => {
+    if (productInCart) {
+      return removeFromCart(product)
+    }
+    addToCart(product)
+  }
   return (
     <div className='w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl'>
       <Link to={`/product/${product.id}`}>
@@ -22,20 +31,21 @@ const ProductItem = ({ productInCart, product }) => {
             <p className='text-sm text-gray-600 cursor-auto ml-2'>$199</p>
           </del>
           <div className='ml-auto'>
+
             <button
-              className=''
-              onClick={() => {
-                productInCart
-                  ? removeFromCart(product)
-                  : addToCart(product)
+              className='' onClick={() => {
+                isAuthenticated ? handleClick() : navigate('/login')
               }}
             >
               <img
                 src={
-                  productInCart ? removeFromCartIcon : AddToCartIcon
+                  isAuthenticated && productInCart
+                    ? removeFromCartIcon
+                    : AddToCartIcon
                 } alt='add to cart icon'
               />
             </button>
+
           </div>
         </div>
       </div>

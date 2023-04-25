@@ -1,7 +1,9 @@
 import useCart from '../../hooks/useCart'
+import { useAuth } from '../../hooks/useAuth'
 
 const ProductInfo = ({ productDetail }) => {
   const { productInCart, addToCart, removeFromCart } = useCart()
+  const { isAuthenticated } = useAuth()
   const inProductInCart = productInCart(productDetail)
   return (
     <>
