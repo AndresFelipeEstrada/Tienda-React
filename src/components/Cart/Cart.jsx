@@ -1,4 +1,4 @@
-import './cart.css'
+// import './cart.css'
 import shoppingCart from '@icons/icon_shopping_cart.svg'
 import useCart from '../../hooks/useCart'
 import Menu from '../Menu/Menu'
@@ -11,17 +11,17 @@ const Cart = () => {
 
   return (
     <>
-      <div className='navbar-right'>
+      <div className='list-none p-0 m-0 flex items-center h-16'>
 
-        <div className='navbar-email' onClick={handleOrder}>platzi@example.com</div>
+        <div className='text-black text-sm mr-3.5 cursor-pointer hidden sm:block' onClick={handleOrder}>platzi@example.com</div>
 
         <div
-          className='navbar-shopping-cart'
+          className='cursor-pointer relative'
           onClick={handleCart}
         >
           <img src={shoppingCart} alt='shopping cart' />
           {
-            cart.length > 0 && <div>{cart.length}</div>
+            cart.length > 0 && <div className='w-4 h-4 bg-hospital-green rounded-full text-sm font-bold absolute -top-1.5 -right-1.5 flex justify-center items-center '>{cart.length}</div>
           }
         </div>
 
