@@ -38,6 +38,10 @@ export const CartProvider = ({ children }) => {
     toast.error('Producto eliminado del carrito')
   }, [cart])
 
+  const clearCart = useCallback(() => {
+    setCart([])
+  }, [cart])
+
   const sumTotal = useMemo(() => {
     const total = cart.reduce((acc, item) => acc + item.price, 0)
     return total
@@ -50,12 +54,12 @@ export const CartProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       cart,
-      setCart,
       addToCart,
       removeFromCart,
+      clearCart,
       sumTotal,
       productInCart
-    }), [cart, addToCart, removeFromCart, sumTotal, productInCart])
+    }), [cart, addToCart, removeFromCart, clearCart, sumTotal, productInCart])
 
   return (
     <CartContext.Provider value={value}>

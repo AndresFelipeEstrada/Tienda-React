@@ -19,7 +19,7 @@ const ProductList = () => {
 
       <Filters filters={filters} setFilters={setFilters} />
 
-      <div className='w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5'>
+      <div className='grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-28'>
         {loading
           ? (<h1 className='loading'>Cargando...</h1>)
           : (products.map(product => {
