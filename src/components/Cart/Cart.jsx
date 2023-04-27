@@ -13,7 +13,7 @@ const Cart = () => {
     <>
       <div className='list-none p-0 m-0 flex items-center h-16'>
 
-        <div className='text-black text-sm mr-3.5 cursor-pointer hidden sm:block' onClick={handleOrder}>platzi@example.com</div>
+        <div className='text-black text-sm mr-3.5 cursor-pointer hidden sm:block' onClick={handleOrder}>usuario@example.com</div>
 
         <div
           className='cursor-pointer relative'

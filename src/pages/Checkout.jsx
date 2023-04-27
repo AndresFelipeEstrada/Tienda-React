@@ -5,10 +5,10 @@ import OrderItem from '../components/OrderItem/OrderItem'
 import useCart from '../hooks/useCart'
 
 const Checkout = () => {
-  const { cart, sumTotal } = useCart()
+  const { cart, setCart, sumTotal } = useCart()
 
   return (
-    <div className='Checkout'>
+    <div className='w-full h-screen grid align-items-center justify-center'>
       <div className='Checkout-container'>
         <h1 className='title'>My order</h1>
         <div className='Checkout-content'>
@@ -27,8 +27,14 @@ const Checkout = () => {
           />
 
         ))}
-        <button className='primary-button'>
+        <button className='bg-hospital-green m-3 rounded-lg text-white w-full  cursor-pointer text-base font-bold h-12'>
           Realizar Compra
+        </button>
+        <button
+          onClick={() => setCart([])}
+          className='bg-hospital-green m-3 rounded-lg text-white w-full  cursor-pointer text-base font-bold h-12'
+        >
+          Limpiar Carrito
         </button>
       </div>
     </div>

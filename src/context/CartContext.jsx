@@ -50,6 +50,7 @@ export const CartProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       cart,
+      setCart,
       addToCart,
       removeFromCart,
       sumTotal,
