@@ -67,15 +67,15 @@ const Login = () => {
             <input type='password' defaultValue={magicWord.password} onChange={handleChangePassword} placeholder='*********' className='bg-gray-100 rounded-lg h-8 text-base p-1 mb-5' />
             {error && <p className='text-red-700'>{error}</p>}
             <button
-              className='bg-hospital-green rounded-lg text-white w-full cursor-pointer text-base font-bold h-12 mt-3 mb-8'
+              className='bg-background-button rounded-lg text-white w-full cursor-pointer text-base font-bold h-12 mt-3 mb-8'
               onClick={handleSubmit}
             >Log in
             </button>
           </form>
 
-          <Link to='/password-recovery' className='text-hospital-green text-sm text-center no-underline mb-12'>Forgot my password</Link>
+          <Link to='/password-recovery' className='text-background-button text-sm text-center no-underline mb-12'>Forgot my password</Link>
 
-          <Link to='/signup' className='bg-white rounded-lg text-hospital-green w-full cursor-pointer text-sm font-bold h-12 border-2 border-solid border-hospital-green no-underline flex items-center justify-center'>Sign up</Link>
+          <Link to='/signup' className='bg-white rounded-lg text-background-button w-full cursor-pointer text-sm font-bold h-12 border-2 border-solid border-background-button no-underline flex items-center justify-center'>Sign up</Link>
 
         </div>
       </div>

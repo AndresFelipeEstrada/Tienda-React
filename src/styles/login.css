@@ -5,34 +5,40 @@
 	justify-content: center;
 	align-items: center;
 }
+
 .Login-container {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 	width: 300px;
 }
+
 .logo-login {
 	width: 150px;
 	margin-bottom: 48px;
 	justify-self: center;
 }
+
 .form {
 	display: flex;
 	flex-direction: column;
 }
-.password-redirect{
-	color: var(--hospital-green);
+
+.password-redirect {
+	color: var(--background-button);
 	font-size: var(--sm);
 	text-align: center;
 	text-decoration: none;
 	margin-bottom: 52px;
 }
+
 .label {
 	font-size: var(--sm);
 	font-weight: bold;
 	margin-bottom: 4px;
 }
+
 .input {
-	background-color: var(--text-input-field);
+	background-color: var(--button-text-field);
 	border: none;
 	border-radius: 8px;
 	height: 30px;
@@ -40,11 +46,13 @@
 	padding: 6px;
 	margin-bottom: 12px;
 }
+
 .input-email {
 	margin-bottom: 22px;
 }
+
 .primary-button {
-	background-color: var(--hospital-green);
+	background-color: var(--background-button);
 	border-radius: 8px;
 	border: none;
 	color: var(--white);
@@ -58,8 +66,8 @@
 .secondary-button {
 	background-color: var(--white);
 	border-radius: 8px;
-	border: 1px solid var(--hospital-green);
-	color: var(--hospital-green);
+	border: 1px solid var(--background-button);
+	color: var(--background-button);
 	width: 100%;
 	cursor: pointer;
 	font-size: var(--md);
@@ -70,12 +78,13 @@
 	align-items: center;
 	justify-content: center;
 }
+
 .login-button {
 	margin-top: 14px;
 	margin-bottom: 30px;
 }
 
-.signup-button{
+.signup-button {
 	margin-top: 14px;
 	margin-bottom: 30px;
 }

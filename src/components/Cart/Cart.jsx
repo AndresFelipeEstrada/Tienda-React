@@ -21,7 +21,7 @@ const Cart = () => {
         >
           <img src={shoppingCart} alt='shopping cart' />
           {
-            cart.length > 0 && <div className='w-4 h-4 bg-hospital-green rounded-full text-sm font-bold absolute -top-1.5 -right-1.5 flex justify-center items-center '>{cart.length}</div>
+            cart.length > 0 && <div className='w-4 h-4 bg-background-button rounded-full text-sm font-bold absolute -top-1.5 -right-1.5 flex justify-center items-center '>{cart.length}</div>
           }
         </div>
 

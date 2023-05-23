@@ -79,7 +79,7 @@ const ProductInfo = ({ productDetail }) => {
               <span className='title-font font-medium text-2xl text-gray-900'>Price: ${productDetail.price}</span>
 
               <button
-                className='flex ml-auto text-hospital-green bg-white-300 border border-hospital-green hover:bg-hospital-green hover:text-white py-2 px-6 focus:outline-none rounded'
+                className='flex ml-auto text-background-button bg-white-300 border border-background-button hover:bg-background-button hover:text-white py-2 px-6 focus:outline-none rounded'
                 onClick={() => {
                   inProductInCart
                     ? removeFromCart(productDetail)

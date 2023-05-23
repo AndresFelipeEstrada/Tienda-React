@@ -1,4 +1,4 @@
-.navbar-right{
+.navbar-right {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -22,7 +22,7 @@
 .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
+    background-color: var(--background-button);
     border-radius: 50%;
     font-size: var(--sm);
     font-weight: bold;

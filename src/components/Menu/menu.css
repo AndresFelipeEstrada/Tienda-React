@@ -30,7 +30,7 @@
 }
 
 .desktop-menu ul li:last-child a {
-  color: var(--hospital-green);
+  color: var(--background-button);
   font-size: var(--sm);
 }
 

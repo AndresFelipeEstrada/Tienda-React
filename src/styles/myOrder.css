@@ -15,45 +15,52 @@
 
 	overflow-y: auto;
 	max-height: 300px;
- 	
+
 }
+
 .title-container {
 	display: flex;
 }
+
 .title-container img {
 	transform: rotate(180deg);
 	margin-right: 14px;
 	cursor: pointer;
 }
+
 .title {
 	font-size: var(--lg);
 	font-weight: bold;
 }
+
 .order {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 16px;
 	align-items: center;
-	background-color: var(--text-input-field);
+	background-color: var(--button-text-field);
 	margin-bottom: 24px;
 	border-radius: 8px;
 	padding: 0 24px;
 }
+
 .order p:nth-child(1) {
 	display: flex;
 	flex-direction: column;
 }
+
 .order p span:nth-child(1) {
 	font-size: var(--md);
 	font-weight: bold;
 }
+
 .order p:nth-child(2) {
 	text-align: end;
 	font-weight: bold;
 }
 
 .primary-button {
-	background-color: var(--hospital-green);
+	background-color: var(--background-button);
 	border-radius: 8px;
 	border: none;
 	width: 100%;

@@ -23,18 +23,18 @@ const Checkout = () => {
           cart.length === 0
             ? <p>Carrito Vacio</p>
             : (
-                cart.map((product) => (
-                  <OrderItem
-                    key={`cart-${product.id}`}
-                    product={product}
-                  />
+              cart.map((product) => (
+                <OrderItem
+                  key={`cart-${product.id}`}
+                  product={product}
+                />
 
-                ))
-              )
+              ))
+            )
         }
         <div>
           <div className='flex h-full'>
-            <button className='flex-grow bg-hospital-green m-3 rounded-lg text-white w-full  cursor-pointer text-base font-bold h-12'>
+            <button className='flex-grow bg-background-button m-3 rounded-lg text-white w-full  cursor-pointer text-base font-bold h-12'>
               Realizar Compra
             </button>
           </div>
@@ -42,7 +42,7 @@ const Checkout = () => {
           <div className='flex h-full'>
             <button
               onClick={clearCart}
-              className='flex-grow bg-hospital-green m-3 rounded-lg text-white w-full  cursor-pointer text-base font-bold h-12'
+              className='flex-grow bg-background-button m-3 rounded-lg text-white w-full  cursor-pointer text-base font-bold h-12'
             >
               Limpiar Carrito
             </button>

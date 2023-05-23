@@ -51,11 +51,11 @@ nav {
 }
 
 .navbar-left ul li a:hover {
-  border: 1px solid var(--hospital-green);
-  color: var(--hospital-green);
+  border: 1px solid var(--background-button);
+  color: var(--background-button);
 }
 
-.inicio {
+/* .inicio {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
@@ -64,9 +64,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--hospital-green);
-  ;
-}
+  color: var(--background-button);
+} */
 
 
 @media (max-width: 640px) {

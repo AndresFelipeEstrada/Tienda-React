@@ -8,8 +8,10 @@ export default {
     extend: {
       colors: {
         'very-light-pink': '#C7C7C7',
-        'text-input': '#F7F7F7',
-        'hospital-green': '#ACD9B2'
+        'button-text': '#fffffe',
+        'background-button': '#3da9fc',
+        paragraph: '#5f6c7b',
+        headline: '#094067'
       }
     }
   },
