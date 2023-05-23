@@ -24,7 +24,7 @@ import AuthGuard from '../components/AuthGuard/auth.guard'
 import ProductDetail from '../pages/ProductDetail'
 import ProductList from '../containers/ProductList'
 
-function App() {
+function App () {
   const { isAuthenticated } = useAuth()
 
   return (
