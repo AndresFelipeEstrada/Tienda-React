@@ -2,10 +2,11 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
+  width: 100%;
+  margin: 0;
   border-bottom: 1px solid var(--very-light-pink);
-  width: calc(100% - 48px);
+
   top: 0;
-  
   background-color: #fff;
 }
 
@@ -54,7 +55,7 @@ nav {
   color: var(--hospital-green);
 }
 
-.inicio{
+.inicio {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
@@ -63,7 +64,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--hospital-green);;
+  color: var(--hospital-green);
+  ;
 }
 
 

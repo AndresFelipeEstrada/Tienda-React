@@ -1,13 +1,7 @@
-import './header.css'
 import menu from '@icons/icon_menu.svg'
-import logo from '@logos/logo_yard_sale.svg'
-
 import { Link } from 'react-router-dom'
-import Cart from '../Cart/Cart'
-import { useAuth } from '../../hooks/useAuth'
 
 const Header = () => {
-  const { isAuthenticated } = useAuth()
   return (
     <>
       <nav id='header' class='fixed w-full z-30 top-0 text-white'>
@@ -47,13 +41,13 @@ const Header = () => {
               id='navAction'
               class='mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'
             >
-              {
-                isAuthenticated
-                  ? (<Cart />)
-                  : (<Link to='/login' className='inicio'>Iniciar Sesion</Link>)
-              }
+              Account
             </button>
-
+            {
+                            isAuthenticated
+                              ? (<Cart />)
+                              : (<Link to='/login' className='inicio'>Iniciar Sesion</Link>)
+                        }
           </div>
         </div>
         <hr class='border-b border-gray-100 opacity-25 my-0 py-0' />
@@ -61,5 +55,3 @@ const Header = () => {
     </>
   )
 }
-
-export default Header
