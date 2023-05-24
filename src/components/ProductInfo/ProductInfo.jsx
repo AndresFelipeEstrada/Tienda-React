@@ -1,9 +1,7 @@
 import useCart from '../../hooks/useCart'
-import { useAuth } from '../../hooks/useAuth'
 
 const ProductInfo = ({ productDetail }) => {
   const { productInCart, addToCart, removeFromCart } = useCart()
-  const { isAuthenticated } = useAuth()
   const inProductInCart = productInCart(productDetail)
   return (
     <>
@@ -52,31 +50,14 @@ const ProductInfo = ({ productDetail }) => {
             </div>
             <p className='leading-relaxed'>{productDetail.description}</p>
             <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'>
-              <div className='flex'>
-                <span className='mr-3'>Color</span>
-                <button className='border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none' />
-                <button className='border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none' />
-                <button className='border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none' />
-              </div>
-              <div className='flex ml-6 items-center'>
-                <span className='mr-3'>Size</span>
-                <div className='relative'>
-                  <select className='rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10'>
-                    <option>SM</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                  </select>
-                  <span className='absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center'>
-                    <svg fill='none' className='w-4 h-4' viewBox='0 0 24 24'>
-                      <path d='M6 9l6 6 6-6' />
-                    </svg>
-                  </span>
-                </div>
-              </div>
+              <span className='absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center'>
+                <svg fill='none' className='w-4 h-4' viewBox='0 0 24 24'>
+                  <path d='M6 9l6 6 6-6' />
+                </svg>
+              </span>
             </div>
             <div className='flex'>
-              <span className='title-font font-medium text-2xl text-gray-900'>Price: ${productDetail.price}</span>
+              <span className='title-font font-medium text-2xl text-gray-900'>Precio: ${productDetail.price}</span>
 
               <button
                 className='flex ml-auto text-background-button bg-white-300 border border-background-button hover:bg-background-button hover:text-white py-2 px-6 focus:outline-none rounded'

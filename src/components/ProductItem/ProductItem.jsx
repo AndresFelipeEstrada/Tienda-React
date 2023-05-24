@@ -2,9 +2,9 @@ import './productItem.css'
 import AddToCartIcon from '@icons/bt_add_to_cart.svg'
 import removeFromCartIcon from '@icons/bt_added_to_cart.svg'
 
+import { Link, useNavigate } from 'react-router-dom'
 import useCart from '../../hooks/useCart'
 import { useAuth } from '../../hooks/useAuth'
-import { Link, useNavigate } from 'react-router-dom'
 
 const ProductItem = ({ productInCart, product }) => {
   const { addToCart, removeFromCart } = useCart()
