@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
 
-      <div className='pt-4 bg-background-button'>
+      <div className='bg-background-button'>
         <div className='container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center z-50'>
           <div className='flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left'>
             <p className='uppercase tracking-loose w-full text-paragraph'>¿Necesitas un profesional?</p>
@@ -29,7 +29,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className='block mt-0 relative -top-5'>
         <img src={wave} alt='' />
       </div>
 
