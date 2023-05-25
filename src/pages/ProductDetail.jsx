@@ -2,6 +2,7 @@ import '../styles/productDetail.css'
 import { useParams } from 'react-router-dom'
 import useProductDetail from '../hooks/useProductDetail'
 import ProductInfo from '../components/ProductInfo/ProductInfo'
+import Review from '../components/ProductReview/Review'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -15,6 +16,9 @@ const ProductDetail = () => {
           productDetail={productDetail}
         />
       </section>
+
+      <Review />
+
     </aside>
   )
 }

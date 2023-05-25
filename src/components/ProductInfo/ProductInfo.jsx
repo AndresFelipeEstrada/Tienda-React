@@ -10,7 +10,7 @@ const ProductInfo = ({ productDetail }) => {
           <img alt='ecommerce' className='lg:w-1/2 w-full object-cover object-center rounded border border-gray-200' src={productDetail.images} />
           <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
             <h2 className='text-sm title-font text-gray-500 tracking-widest'>BRAND NAME</h2>
-            <h1 className='text-gray-900 text-3xl title-font font-medium mb-1'>{productDetail.title}</h1>
+            <h1 className='text-headline text-3xl title-font font-medium mb-1'>{productDetail.title}</h1>
             <div className='flex mb-4'>
               <span className='flex items-center'>
                 <svg fill='currentColor' className='w-4 h-4 text-red-500' viewBox='0 0 24 24'>
@@ -48,7 +48,7 @@ const ProductInfo = ({ productDetail }) => {
                 </a>
               </span>
             </div>
-            <p className='leading-relaxed'>{productDetail.description}</p>
+            <p className='leading-relaxed text-paragraph'>{productDetail.description}</p>
             <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'>
               <span className='absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center'>
                 <svg fill='none' className='w-4 h-4' viewBox='0 0 24 24'>
