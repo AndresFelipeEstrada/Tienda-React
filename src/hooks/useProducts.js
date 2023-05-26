@@ -22,10 +22,10 @@ const useProducts = () => {
   const filterProducts = (products) => {
     return products.filter(product => {
       return (
-        product.price >= filters.minPrice &&
+        product.precio >= filters.minPrice &&
         (
-          filters.category === 'all' ||
-          product.category.name === filters.category
+          filters.category === 'todas' ||
+          product.categorias_info[0].nombre === filters.category
         )
       )
     })
