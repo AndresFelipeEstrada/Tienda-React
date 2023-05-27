@@ -7,10 +7,10 @@ const ProductInfo = ({ productDetail }) => {
     <>
       <div className='container px-5 py-24 mx-auto'>
         <div className='lg:w-4/5 mx-auto flex flex-wrap'>
-          <img alt='ecommerce' className='lg:w-1/2 w-full object-cover object-center rounded border border-gray-200' src={productDetail.images} />
+          <img alt='ecommerce' className='lg:w-1/2 w-full object-cover object-center rounded border border-gray-200' src={productDetail.imagen} />
           <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
-            <h2 className='text-sm title-font text-gray-500 tracking-widest'>BRAND NAME</h2>
-            <h1 className='text-headline text-3xl title-font font-medium mb-1'>{productDetail.title}</h1>
+            <h2 className='text-sm title-font text-gray-500 tracking-widest'>{productDetail.profesion}</h2>
+            <h1 className='text-headline text-3xl title-font font-medium mb-1'>{productDetail.nombre}</h1>
             <div className='flex mb-4'>
               <span className='flex items-center'>
                 <svg fill='currentColor' className='w-4 h-4 text-red-500' viewBox='0 0 24 24'>
@@ -48,7 +48,7 @@ const ProductInfo = ({ productDetail }) => {
                 </a>
               </span>
             </div>
-            <p className='leading-relaxed text-paragraph'>{productDetail.description}</p>
+            <p className='leading-relaxed text-paragraph'>{productDetail.descripcion}</p>
             <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'>
               <span className='absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center'>
                 <svg fill='none' className='w-4 h-4' viewBox='0 0 24 24'>
@@ -57,7 +57,7 @@ const ProductInfo = ({ productDetail }) => {
               </span>
             </div>
             <div className='flex'>
-              <span className='title-font font-medium text-2xl text-gray-900'>Precio: ${productDetail.price}</span>
+              <span className='title-font font-medium text-2xl text-gray-900'>Precio: ${productDetail.precio}</span>
 
               <button
                 className='flex ml-auto text-background-button bg-white-300 border border-background-button hover:bg-background-button hover:text-white py-2 px-6 focus:outline-none rounded'

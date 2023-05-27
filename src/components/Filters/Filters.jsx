@@ -22,11 +22,11 @@ const Filters = ({ setFilters, filters }) => {
     <>
       <div>
         <label htmlFor={priceId} className='mb-2 inline-block text-neutral-700 dark:text-neutral-00'>Precio a partir de :</label>
-        <input id={priceId} type='range' value={filters.minPrice} onChange={handleChangeMinPrice} min='0' max='2000' className='transparent h-1.5 cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200' />
-        <span> ${filters.minPrice}</span>
+        <input id={priceId} type='range' value={filters.minPrice} onChange={handleChangeMinPrice} min='0' max='5000000' className='transparent h-1.5 cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200' />
+        <span className='text-black'> ${filters.minPrice}</span>
       </div>
 
-      <div>
+      <div className='text-black'>
         <label htmlFor={categoryId}>Categoria:</label>
         <select id={categoryId} onChange={handleChangeCategory}>
           <option value='todas'>All</option>
