@@ -1,14 +1,9 @@
-// const API = 'https://api.escuelajs.co/api/v1/products'
-const DJANGO = 'http://127.0.0.1:8000/productos/v1/product?format=json'
+import axios from 'axios'
+import BASE_URL from './baseURL'
 
 const getData = async () => {
-  try {
-    const response = await fetch(DJANGO)
-    const data = await response.json()
-    return data
-  } catch (error) {
-    throw new Error(error)
-  }
+  const response = await axios.get(`${BASE_URL}?format=json`)
+  return response.data
 }
 
 export default getData

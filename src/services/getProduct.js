@@ -1,12 +1,9 @@
-// const getUser = 'http://127.0.0.1:8000/productos/v1/product?format=json'
+import axios from 'axios'
+import BASE_URL from './baseURL'
+
 const getProduct = async ({ id }) => {
-  try {
-    const response = await fetch(`http://127.0.0.1:8000/productos/v1/product/${id}?format=json`)
-    const data = await response.json()
-    return data
-  } catch (error) {
-    throw new Error('Error en la peticion fetch')
-  }
+  const response = await axios.get(`${BASE_URL}/${id}?format=json`)
+  return response.data
 }
 
 export default getProduct
