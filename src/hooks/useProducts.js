@@ -1,19 +1,24 @@
 
 import { useContext, useEffect, useState } from 'react'
-import getData from '../services/apiFetch'
+import getData from '../services/getAllProducts'
 import { FiltersContext } from '../context/FilterContext'
 
 const useProducts = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   const { filters, setFilters } = useContext(FiltersContext)
 
   useEffect(() => {
     const getProducts = async () => {
-      const data = await getData()
-      setProducts(data)
-      setLoading(false)
+      try {
+        const data = await getData()
+        setProducts(data)
+        setLoading(false)
+      } catch (error) {
+        setError(error)
+      }
     }
 
     getProducts()
@@ -33,7 +38,7 @@ const useProducts = () => {
 
   const filteredProducts = filterProducts(products)
 
-  return { products, filters, setFilters, filteredProducts, loading }
+  return { products, filters, setFilters, filteredProducts, loading, error }
 }
 
 export default useProducts
