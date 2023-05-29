@@ -29,7 +29,7 @@ python manage.py migrate 'nombre_carpeta'
 pip install djangorestframework
 
 ## para comunicar nuestro backend con el frontend
-## Acturiza a nuestro servidor para conectarse con el frontend
+## Autoriza a nuestro servidor para conectarse con el frontend
 pip install django-cors-headers
 
 # crear tabla o modelos
