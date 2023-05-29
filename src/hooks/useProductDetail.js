@@ -14,9 +14,8 @@ const useProductDetail = ({ id }) => {
         setError(error)
       }
     }
-
     getProductDetail()
-  }, [productDetail])
+  }, [])
 
   return { productDetail, error }
 }
