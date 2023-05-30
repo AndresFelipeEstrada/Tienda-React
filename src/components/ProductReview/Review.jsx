@@ -4,7 +4,11 @@ const Review = ({ reviews }) => {
   const reviewList = reviews || []
   return (
     <>
-      <p className='text-headline text-xl p-3 pl-12'>Customer Reviews</p>
+      <div className='flex justify-between'>
+        <p className='text-headline text-xl p-3 ml-12'>Reviews de usuarios</p>
+        <p className='text-headline text-xl p-3 mr-96'>Escribe una review</p>
+      </div>
+
       <section className='grid text-black justify-items-center grid-cols-2 grid-rows-1 gap-0 h-full '>
         <div className='w-full pl-12'>
           <hr className=' justify-center border-b border-black opacity-10' />
@@ -13,7 +17,6 @@ const Review = ({ reviews }) => {
           return (
             <div key={review.id}>
               <div className='flex'>
-
                 <div className='flex-auto flex flex-col items-center justify-center'>
                   <div className=' flex flex-col'>
                     <img className='rounded-full h-14 w-14' src={reviewIcon} alt='photo' />
@@ -45,9 +48,28 @@ const Review = ({ reviews }) => {
         })
       }
         </div>
-        <div className='text-headline text-xl p-5'>
-          Write a Review
+
+        <div>
+
+          <div className='flex flex-col-1 gap-60'>
+            <div>Rate us</div>
+            <div>estrellas</div>
+          </div>
+
+          <div className=''>
+            <form action=''>
+              <div className='flex flex-col gap-5'>
+                <input className='border-2 peer block min-h-full border-very-light-pink' type='text' placeholder='Name' />
+                <input className='' type='text' placeholder='Titulo' />
+                <input className='' type='text' placeholder='Review' />
+
+                <button className='bg-background-button text-button-text'>Post Review</button>
+              </div>
+            </form>
+
+          </div>
         </div>
+
       </section>
     </>
   )
