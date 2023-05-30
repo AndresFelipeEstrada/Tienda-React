@@ -19,7 +19,7 @@ class CategoriaSerializer(serializers.ModelSerializer):
         ordering = ['-id']
 
 
-class ReviewSerializer():
+class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ('id', 'nombre', 'mensaje')

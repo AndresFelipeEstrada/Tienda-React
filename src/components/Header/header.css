@@ -4,7 +4,7 @@ nav {
   padding: 0 24px;
   width: 100%;
   margin: 0;
-  border-bottom: 1px solid var(--very-light-pink);
+  border-bottom: 1px solid var(--very-gray);
 
   top: 0;
   background-color: #fff;
@@ -44,7 +44,7 @@ nav {
 
 .navbar-left ul li a {
   text-decoration: none;
-  color: var(--very-light-pink);
+  color: var(--very-gray);
   border: 1px solid var(--white);
   padding: 8px;
   border-radius: 8px;
@@ -56,7 +56,7 @@ nav {
 }
 
 /* .inicio {
-  color: var(--very-light-pink);
+  color: var(--very-gray);
   font-size: var(--sm);
   margin-right: 12px;
   cursor: pointer;

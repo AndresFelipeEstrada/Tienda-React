@@ -4,6 +4,7 @@ from rest_framework import status
 from .serializer import ProductSerializer, CategoriaSerializer, ReviewSerializer
 from .models import Product, Categoria, Review
 from django.http import Http404
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -107,7 +108,6 @@ class Review_APIView_List(APIView):
         serializer = ReviewSerializer(review, many=True)
         return Response(serializer.data)
 
-
 class Review_APIView(APIView):
 
     def post(self, request, format=None):
@@ -116,6 +116,19 @@ class Review_APIView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def post(self, request, pk, format=None):
+        product = Product.objects.get(pk=pk)
+
+        if request.method == 'POST':
+            serializer = ReviewSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.validated_data['producto'] = product
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
 class Review_APIView_Detail(APIView):

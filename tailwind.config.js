@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'very-light-pink': '#C7C7C7',
+        'very-gray': '#C7C7C7',
         'button-text': '#fffffe',
         'background-button': '#3da9fc',
         paragraph: '#5f6c7b',

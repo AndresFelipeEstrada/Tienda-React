@@ -25,7 +25,7 @@
 }
 
 .subtitle {
-  color: var(--very-light-pink);
+  color: var(--very-gray);
   font-size: var(--md);
   font-weight: 300;
   margin-top: 0;
@@ -53,7 +53,7 @@
 }
 
 .resend span {
-  color: var(--very-light-pink);
+  color: var(--very-gray);
 }
 
 .resend a {

@@ -5,18 +5,22 @@
 	margin-bottom: 24px;
 	align-items: center;
 }
+
 .ShoppingCartItem figure {
 	margin: 0;
 }
+
 .ShoppingCartItem figure img {
 	width: 70px;
 	height: 70px;
 	border-radius: 20px;
 	object-fit: cover;
 }
+
 .ShoppingCartItem p:nth-child(2) {
-	color: var(--very-light-pink);
+	color: var(--very-gray);
 }
+
 .ShoppingCartItem p:nth-child(3) {
 	font-size: var(--md);
 	font-weight: bold;

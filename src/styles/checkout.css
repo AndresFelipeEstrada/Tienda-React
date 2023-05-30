@@ -46,7 +46,7 @@
 
 .order p span:nth-child(2) {
 	font-size: var(--sm);
-	color: var(--very-light-pink);
+	color: var(--very-gray);
 }
 
 .order p:nth-child(2) {

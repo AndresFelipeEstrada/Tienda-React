@@ -1,7 +1,7 @@
 .desktop-menu {
   position: absolute;
   height: auto;
-  border: 1px solid var(--very-light-pink);
+  border: 1px solid var(--very-gray);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
   top: 60px;
@@ -26,7 +26,7 @@
 
 .desktop-menu ul li:last-child {
   padding-top: 20px;
-  border-top: 1px solid var(--very-light-pink);
+  border-top: 1px solid var(--very-gray);
 }
 
 .desktop-menu ul li:last-child a {

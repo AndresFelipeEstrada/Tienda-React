@@ -40,14 +40,14 @@
 }
 
 .product-info p:nth-child(2) {
-  color: var(--very-light-pink);
+  color: var(--very-gray);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
 
 .product-info p:nth-child(3) {
-  color: var(--very-light-pink);
+  color: var(--very-gray);
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 36px;
