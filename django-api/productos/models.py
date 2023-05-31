@@ -45,10 +45,11 @@ class Product(models.Model):
 
     def reviews_info(self):
         reviews = self.review_set.all()
-        return [{"id": review.id, "nombre": review.nombre, "mensaje": review.mensaje} for review in reviews]
+        return [{"id": review.id, "titulo": review.titulo, "nombre": review.nombre, "mensaje": review.mensaje} for review in reviews]
 
 
 class Review(models.Model):
+    titulo = models.CharField(max_length=50, verbose_name='titulo')
     nombre = models.CharField(
         max_length=100, verbose_name='Nombre', default='Anonimo')
     mensaje = models.CharField(max_length=800, verbose_name='mensaje')

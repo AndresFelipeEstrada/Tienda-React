@@ -17,7 +17,7 @@ const ProductDetail = () => {
         />
       </section>
 
-      <Review reviews={productDetail.reviews_info} />
+      <Review reviews={productDetail.reviews_info} userId={id} />
 
     </aside>
   )

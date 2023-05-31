@@ -1,7 +1,57 @@
 import reviewIcon from '@icons/man.png'
+import { useState, useEffect } from 'react'
+import postReview from '../../services/postReview'
+import getReview from '../../services/getReview'
 
-const Review = ({ reviews }) => {
-  const reviewList = reviews || []
+const Review = ({ userId }) => {
+  const [reviews, setReviews] = useState([])
+
+  useEffect(() => {
+    const getAllReviews = async () => {
+      const response = await getReview(userId)
+      setReviews(response.data)
+    }
+
+    getAllReviews()
+  }, [reviews])
+
+  const [review, setReview] = useState({
+    titulo: '',
+    nombre: '',
+    texto: ''
+  })
+
+  const handleChangeTitulo = (e) => {
+    setReview(prevState => ({
+      ...prevState,
+      titulo: e.target.value
+    }))
+  }
+
+  const handleChangeNombre = (e) => {
+    setReview(prevState => ({
+      ...prevState,
+      nombre: e.target.value
+    }))
+  }
+
+  const handleChangeMensaje = (e) => {
+    setReview(prevState => ({
+      ...prevState,
+      mensaje: e.target.value
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await postReview(userId, review)
+    setReview({
+      titulo: '',
+      nombre: '',
+      texto: ''
+    })
+  }
+
   return (
     <>
       <div className='flex justify-between'>
@@ -13,11 +63,11 @@ const Review = ({ reviews }) => {
         <div className='w-full pl-12'>
           <hr className=' justify-center border-b border-black opacity-10' />
           {
-        reviewList.map((review) => {
+        reviews.map((review) => {
           return (
             <div key={review.id}>
               <div className='flex'>
-                <div className='flex-auto flex flex-col items-center justify-center'>
+                <div className=' break-normal flex-auto flex flex-col items-center justify-center'>
                   <div className=' flex flex-col'>
                     <img className='rounded-full h-14 w-14' src={reviewIcon} alt='photo' />
                     <span className='text-headline mt-2'>{review.nombre}</span>
@@ -25,7 +75,7 @@ const Review = ({ reviews }) => {
                 </div>
 
                 <div className='flex-auto w-80 my-5'>
-                  <strong className=' text-headline m-2'>Amazing color</strong>
+                  <strong className=' text-headline m-2'>{review.titulo}</strong>
                   <div className='flex items-center m-2'>
                     <svg aria-hidden='true' className='w-5 h-5 text-yellow-400' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><title>First star</title><path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' /></svg>
                     <svg aria-hidden='true' className='w-5 h-5 text-yellow-400' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><title>Second star</title><path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' /></svg>
@@ -89,11 +139,11 @@ const Review = ({ reviews }) => {
           </div>
 
           <div className=''>
-            <form action=''>
+            <form onSubmit={handleSubmit}>
               <div className='flex flex-col'>
-                <input className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Titulo' />
-                <input className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Nombre' />
-                <textarea className='border p-1 m-1 text-paragraph border-paragraph  w-full h-32 mt-3 resize-none' placeholder='Tu review' cols='30' rows='10' />
+                <input onChange={handleChangeTitulo} className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Titulo' required />
+                <input onChange={handleChangeNombre} className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Nombre' required />
+                <textarea onChange={handleChangeMensaje} className='border p-1 m-1 text-paragraph border-paragraph  w-full h-32 mt-3 resize-none' placeholder='Tu review' cols='30' rows='10' required />
                 <button
                   className=' p-1 m-1 bg-background-button text-white w-full cursor-pointer text-base font-bold h-12 mt-3 mb-8'
                 >Post Review

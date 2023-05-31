@@ -106,17 +106,12 @@ class Review_APIView_List(APIView):
     def get(self, request, format=None, *args, **kwargs):
         review = Review.objects.all()
         serializer = ReviewSerializer(review, many=True)
-        return Response(serializer.data)
+        reversed_data = serializer.data[::-1]
+        return Response(reversed_data)
+
 
 class Review_APIView(APIView):
 
-    def post(self, request, format=None):
-        serializer = ReviewSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
     def post(self, request, pk, format=None):
         product = Product.objects.get(pk=pk)
 
@@ -127,8 +122,6 @@ class Review_APIView(APIView):
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 
 
 class Review_APIView_Detail(APIView):

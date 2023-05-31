@@ -23,8 +23,8 @@ class Categorias_Admin(admin.ModelAdmin):
 class Reviews_Admin(admin.ModelAdmin):
     model = Review
     readonly_fields = ('creado', 'editado')
-    search_fields = ('nombre', 'mensaje')
-    list_display = ('nombre', 'mensaje')
+    search_fields = ('titulo', 'nombre', 'mensaje')
+    list_display = ('titulo', 'nombre', 'mensaje')
     ordering = ('-creado',)
 
 

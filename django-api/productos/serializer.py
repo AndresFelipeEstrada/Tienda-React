@@ -22,6 +22,6 @@ class CategoriaSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = ('id', 'nombre', 'mensaje')
+        fields = ('id', 'titulo', 'nombre', 'mensaje', 'creado')
         ordering_fields = ['id']
         ordering = ['-id']
