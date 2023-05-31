@@ -13,12 +13,12 @@ const Review = ({ userId }) => {
     }
 
     getAllReviews()
-  }, [reviews])
+  }, [])
 
   const [review, setReview] = useState({
     titulo: '',
     nombre: '',
-    texto: ''
+    mensaje: ''
   })
 
   const handleChangeTitulo = (e) => {
@@ -44,12 +44,13 @@ const Review = ({ userId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await postReview(userId, review)
-    setReview({
-      titulo: '',
-      nombre: '',
-      texto: ''
-    })
+    try {
+      await postReview(userId, review)
+      const updatedReviews = await getReview(userId)
+      setReviews(updatedReviews.data)
+    } catch (error) {
+      console.log('Error al crear la reseña:', error.message)
+    }
   }
 
   return (
