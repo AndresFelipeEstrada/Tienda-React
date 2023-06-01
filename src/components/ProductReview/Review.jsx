@@ -1,57 +1,8 @@
 import reviewIcon from '@icons/man.png'
-import { useState, useEffect } from 'react'
-import postReview from '../../services/postReview'
-import getReview from '../../services/getReview'
+import { useReviewForm } from '../../hooks/useReviewForm'
 
 const Review = ({ userId }) => {
-  const [reviews, setReviews] = useState([])
-
-  useEffect(() => {
-    const getAllReviews = async () => {
-      const response = await getReview(userId)
-      setReviews(response.data)
-    }
-
-    getAllReviews()
-  }, [])
-
-  const [review, setReview] = useState({
-    titulo: '',
-    nombre: '',
-    mensaje: ''
-  })
-
-  const handleChangeTitulo = (e) => {
-    setReview(prevState => ({
-      ...prevState,
-      titulo: e.target.value
-    }))
-  }
-
-  const handleChangeNombre = (e) => {
-    setReview(prevState => ({
-      ...prevState,
-      nombre: e.target.value
-    }))
-  }
-
-  const handleChangeMensaje = (e) => {
-    setReview(prevState => ({
-      ...prevState,
-      mensaje: e.target.value
-    }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      await postReview(userId, review)
-      const updatedReviews = await getReview(userId)
-      setReviews(updatedReviews.data)
-    } catch (error) {
-      console.log('Error al crear la reseña:', error.message)
-    }
-  }
+  const [reviews, handleChange, handleSubmitForm] = useReviewForm({ userId })
 
   return (
     <>
@@ -140,11 +91,11 @@ const Review = ({ userId }) => {
           </div>
 
           <div className=''>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitForm}>
               <div className='flex flex-col'>
-                <input onChange={handleChangeTitulo} className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Titulo' required />
-                <input onChange={handleChangeNombre} className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Nombre' required />
-                <textarea onChange={handleChangeMensaje} className='border p-1 m-1 text-paragraph border-paragraph  w-full h-32 mt-3 resize-none' placeholder='Tu review' cols='30' rows='10' required />
+                <input onChange={handleChange} name='titulo' className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Titulo' required />
+                <input onChange={handleChange} name='nombre' className='border p-1 m-1 text-paragraph border-paragraph  w-full h-12 mt-3 ' type='text' placeholder='Nombre' required />
+                <textarea onChange={handleChange} name='mensaje' className='border p-1 m-1 text-paragraph border-paragraph  w-full h-32 mt-3 resize-none' placeholder='Tu review' cols='30' rows='10' required />
                 <button
                   className=' p-1 m-1 bg-background-button text-white w-full cursor-pointer text-base font-bold h-12 mt-3 mb-8'
                 >Post Review

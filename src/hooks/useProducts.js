@@ -25,9 +25,9 @@ const useProducts = () => {
   }, [])
 
   const filterProducts = (products) => {
-    return products.filter(product => {
+    return products.filter((product) => {
       return (
-        product.precio >= filters.minPrice &&
+        (product.precio >= filters.minPrice && product.precio <= filters.maxPrice) &&
         (
           filters.category === 'todas' ||
           product.categorias_info[0].nombre === filters.category
