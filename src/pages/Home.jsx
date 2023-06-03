@@ -3,6 +3,7 @@ import { memo } from 'react'
 import fondo from '@logos/hero.png'
 import wave from '@icons/wave.svg'
 import { useNavigate } from 'react-router-dom'
+import Testimonial from '../components/Testimonial/Testimonial'
 // import ProductList from '../containers/ProductList'
 
 const Home = () => {
@@ -13,11 +14,11 @@ const Home = () => {
       <div className='bg-background-button'>
         <div className='container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center z-50'>
           <div className='flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left'>
-            <p className='uppercase tracking-loose w-full text-paragraph'>¿Necesitas un profesional?</p>
+            <p className='uppercase tracking-loose w-full text-black'>¿Necesitas un profesional?</p>
             <h1 className='my-4 text-5xl font-bold leading-tight text-headline'>
               Encuentra expertos que te ayuden ahora mismo.
             </h1>
-            <p className='leading-normal text-paragraph text-2xl mb-8'>
+            <p className='leading-normal text-black text-2xl mb-8'>
               Todo tipo de expertos dispuestos a ayudarte en tu problema ahora mismo...
             </p>
             <button onClick={() => navigate('/product-list')} className='mx-auto lg:mx-0 hover:underline bg-background-button border-2 border-white text-button-text font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'>
@@ -35,7 +36,7 @@ const Home = () => {
 
       <section className='bg-white border-b'>
         <div className='container max-w-5xl mx-auto m-8'>
-          <h2 className='w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800'>
+          <h2 className='w-full my-2 text-5xl font-bold leading-tight text-center text-headline'>
             Title
           </h2>
           <div className='w-full mb-4'>
@@ -43,17 +44,11 @@ const Home = () => {
           </div>
           <div className='flex flex-wrap'>
             <div className='w-5/6 sm:w-1/2 p-6'>
-              <h3 className='text-3xl text-gray-800 font-bold leading-none mb-3'>
+              <h3 className='text-3xl text-headline font-bold leading-none mb-3'>
                 Lorem ipsum dolor sit amet
               </h3>
-              <p className='text-gray-600 mb-8'>
+              <p className='text-paragraph mb-8'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-                <br />
-                <br />
-
-                Images from:
-
-                <a className='text-pink-500 underline' href='https://undraw.co/'>undraw.co</a>
               </p>
             </div>
             <div className='w-full sm:w-1/2 p-6'>
@@ -336,99 +331,18 @@ const Home = () => {
             </div>
             <div className='w-full sm:w-1/2 p-6 mt-6'>
               <div className='align-middle'>
-                <h3 className='text-3xl text-gray-800 font-bold leading-none mb-3'>
+                <h3 className='text-3xl text-headline font-bold leading-none mb-3'>
                   Lorem ipsum dolor sit amet
                 </h3>
-                <p className='text-gray-600 mb-8'>
+                <p className='text-paragraph mb-8'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-                  <br />
-                  <br />
-                  Images from:
-
-                  <a className='text-pink-500 underline' href='https://undraw.co/'>undraw.co</a>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className='bg-white border-b py-8'>
-        <div className='container mx-auto flex flex-wrap pt-4 pb-12'>
-          <h2 className='w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800'>
-            Title
-          </h2>
-          <div className='w-full mb-4'>
-            <div className='h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t' />
-          </div>
-          <div className='w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink'>
-            <div className='flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow'>
-              <a href='#' className='flex flex-wrap no-underline hover:no-underline'>
-                <p className='w-full text-gray-600 text-xs md:text-sm px-6'>
-                  xGETTING STARTED
-                </p>
-                <div className='w-full font-bold text-xl text-gray-800 px-6'>
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p className='text-gray-800 text-base px-6 mb-5'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div className='flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6'>
-              <div className='flex items-center justify-start'>
-                <button className='mx-auto lg:mx-0 hover:underline bg-background-button text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'>
-                  Buscar
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className='w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink'>
-            <div className='flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow'>
-              <a href='#' className='flex flex-wrap no-underline hover:no-underline'>
-                <p className='w-full text-gray-600 text-xs md:text-sm px-6'>
-                  xGETTING STARTED
-                </p>
-                <div className='w-full font-bold text-xl text-gray-800 px-6'>
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p className='text-gray-800 text-base px-6 mb-5'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div className='flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6'>
-              <div className='flex items-center justify-center'>
-                <button className='mx-auto lg:mx-0 hover:underline bg-background-button text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'>
-                  Buscar
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className='w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink'>
-            <div className='flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow'>
-              <a href='#' className='flex flex-wrap no-underline hover:no-underline'>
-                <p className='w-full text-gray-600 text-xs md:text-sm px-6'>
-                  xGETTING STARTED
-                </p>
-                <div className='w-full font-bold text-xl text-gray-800 px-6'>
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <p className='text-gray-800 text-base px-6 mb-5'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-                </p>
-              </a>
-            </div>
-            <div className='flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6'>
-              <div className='flex items-center justify-end'>
-                <button className='mx-auto lg:mx-0 hover:underline bg-background-button text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'>
-                  Buscar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Testimonial />
       <div className='bg-background-button'>
         <svg className='wave-top' viewBox='0 0 1439 147' version='1.1'>
           <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>

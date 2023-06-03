@@ -25,7 +25,7 @@ const ProductItem = ({ productInCart, product }) => {
       <div className='px-4 py-3 w-72'>
         <p className='text-lg font-bold text-black truncate block capitalize'>{product.nombre}</p>
         <p className='text-lg font-bold text-black truncate block capitalize'>{product.profesion}</p>
-        <p className='text-lg font-semibold text-black cursor-auto my-3'>{product.categorias_info[0].nombre}</p>
+        {/* <p className='text-lg font-semibold text-black cursor-auto my-3'>{product.categorias_info[0].nombre}</p> */}
         <div className='flex items-center'>
           <p className='text-lg font-semibold text-black cursor-auto my-3'>${product.precio}</p>
           <del>
