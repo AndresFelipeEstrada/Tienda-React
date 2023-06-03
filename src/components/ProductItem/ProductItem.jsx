@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react'
 import './productItem.css'
 import AddToCartIcon from '@icons/bt_add_to_cart.svg'
 import removeFromCartIcon from '@icons/bt_added_to_cart.svg'
@@ -6,17 +7,18 @@ import { Link, useNavigate } from 'react-router-dom'
 import useCart from '../../hooks/useCart'
 import { useAuth } from '../../hooks/useAuth'
 
-const ProductItem = ({ productInCart, product }) => {
+const ProductItem = memo(function ProductItem ({ productInCart, product }) {
   const { addToCart, removeFromCart } = useCart()
   const { isAuthenticated } = useAuth()
   const navigate = useNavigate()
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (productInCart) {
       return removeFromCart(product)
     }
     addToCart(product)
-  }
+  }, [addToCart, removeFromCart])
+
   return (
     <div className='w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl'>
       <Link to={`/product/${product.id}`}>
@@ -54,5 +56,6 @@ const ProductItem = ({ productInCart, product }) => {
     </div>
   )
 }
+)
 
 export default ProductItem

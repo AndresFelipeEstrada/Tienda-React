@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom'
 import './header.css'
 import menu from '@icons/icon_menu.svg'
 import logo from '@logos/logo_yard_sale.svg'
 
-import { Link } from 'react-router-dom'
 import Cart from '../Cart/Cart'
 import { useAuth } from '../../hooks/useAuth'
 
@@ -47,18 +47,21 @@ const Header = () => {
               </div>
             </div>
 
-            <div className='hidden sm:block'>
-              <button
-                id='navAction'
-                className='mx-auto lg:mx-0 justify-end hover:underline text-button-text bg-background-button font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'
-              >
-                {
+            {
                   isAuthenticated
                     ? (<Cart />)
-                    : (<Link to='/login' className='inicio'>Iniciar Sesion</Link>)
-                }
-              </button>
-            </div>
+                    : (
+
+                      <Link to='/login'>
+                        <button
+                          id='navAction'
+                          className='hidden sm:block mx-auto lg:mx-0 justify-end hover:underline text-button-text bg-background-button font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'
+                        >
+                          Iniciar Sesion
+                        </button>
+                      </Link>)
+            }
+            {/* // <Link to='/login' className='inicio'>Iniciar Sesion</Link>) */}
 
           </div>
           <hr className='border-b border-gray-100 opacity-25 my-0 py-0' />

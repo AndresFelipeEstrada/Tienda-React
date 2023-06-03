@@ -31,26 +31,26 @@ const Filters = ({ setFilters, filters, priceRange }) => {
 
   return (
     <>
-      <div class='flex gap-8 m-10'>
-        <div class='relative'>
-          <details class='group [&_summary::-webkit-details-marker]:hidden'>
+      <div className='flex gap-8 m-10'>
+        <div className='relative'>
+          <details className='group [&_summary::-webkit-details-marker]:hidden'>
             <summary
-              class='flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600'
+              className='flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600'
             >
-              <span class='text-sm font-medium'> Categorias </span>
+              <span className='text-sm font-medium'> Categorias </span>
 
-              <span class='transition group-open:-rotate-180'>
+              <span className='transition group-open:-rotate-180'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 24 24'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                   stroke='currentColor'
-                  class='h-4 w-4'
+                  className='h-4 w-4'
                 >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     d='M19.5 8.25l-7.5 7.5-7.5-7.5'
                   />
                 </svg>
@@ -58,33 +58,33 @@ const Filters = ({ setFilters, filters, priceRange }) => {
             </summary>
 
             <div
-              class='z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2'
+              className='z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2'
             >
-              <div class='w-96 rounded border border-gray-200 bg-white'>
-                <header class='flex items-center justify-between p-4'>
-                  <span class='text-sm text-gray-700'> Elige una categoria </span>
+              <div className='w-96 rounded border border-gray-200 bg-white'>
+                <header className='flex items-center justify-between p-4'>
+                  <span className='text-sm text-gray-700'> Elige una categoria </span>
 
                   <button
                     type='button'
-                    class='text-sm text-gray-900 underline underline-offset-4'
+                    className='text-sm text-gray-900 underline underline-offset-4'
                   >
                     Reiniciar
                   </button>
                 </header>
 
-                <ul class='space-y-1 border-t border-gray-200 p-4'>
+                <ul className='space-y-1 border-t border-gray-200 p-4'>
                   <li>
-                    <label for={categoryId} class='inline-flex items-center gap-2'>
+                    <label htmlFor={categoryId} className='inline-flex items-center gap-2'>
                       <input
                         type='checkbox'
                         id='FilterInStock'
                         value='todas'
                         checked={selectedOption === 'todas'}
                         onChange={handleChangeCategory}
-                        class='h-5 w-5 rounded border-gray-300'
+                        className='h-5 w-5 rounded border-gray-300'
                       />
 
-                      <span class='text-sm font-medium text-gray-700'>
+                      <span className='text-sm font-medium text-gray-700'>
                         Todas
                       </span>
                     </label>
@@ -92,8 +92,8 @@ const Filters = ({ setFilters, filters, priceRange }) => {
 
                   <li>
                     <label
-                      for='FilterPreOrder'
-                      class='inline-flex items-center gap-2'
+                      htmlFor='FilterPreOrder'
+                      className='inline-flex items-center gap-2'
                     >
                       <input
                         type='checkbox'
@@ -101,10 +101,10 @@ const Filters = ({ setFilters, filters, priceRange }) => {
                         value='Ingeniero'
                         checked={selectedOption === 'Ingeniero'}
                         onChange={handleChangeCategory}
-                        class='h-5 w-5 rounded border-gray-300'
+                        className='h-5 w-5 rounded border-gray-300'
                       />
 
-                      <span class='text-sm font-medium text-gray-700'>
+                      <span className='text-sm font-medium text-gray-700'>
                         Tecnicos
                       </span>
                     </label>
@@ -112,8 +112,8 @@ const Filters = ({ setFilters, filters, priceRange }) => {
 
                   <li>
                     <label
-                      for='FilterOutOfStock'
-                      class='inline-flex items-center gap-2'
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
                     >
                       <input
                         type='checkbox'
@@ -121,10 +121,10 @@ const Filters = ({ setFilters, filters, priceRange }) => {
                         value='Limpieza'
                         checked={selectedOption === 'Limpieza'}
                         onChange={handleChangeCategory}
-                        class='h-5 w-5 rounded border-gray-300'
+                        className='h-5 w-5 rounded border-gray-300'
                       />
 
-                      <span class='text-sm font-medium text-gray-700'>
+                      <span className='text-sm font-medium text-gray-700'>
                         Limpieza
                       </span>
                     </label>
@@ -135,25 +135,25 @@ const Filters = ({ setFilters, filters, priceRange }) => {
           </details>
         </div>
 
-        <div class='relative'>
-          <details class='group [&_summary::-webkit-details-marker]:hidden'>
+        <div className='relative'>
+          <details className='group [&_summary::-webkit-details-marker]:hidden'>
             <summary
-              class='flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600'
+              className='flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600'
             >
-              <span class='text-sm font-medium'> Precio </span>
+              <span className='text-sm font-medium'> Precio </span>
 
-              <span class='transition group-open:-rotate-180'>
+              <span className='transition group-open:-rotate-180'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 24 24'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                   stroke='currentColor'
-                  class='h-4 w-4'
+                  className='h-4 w-4'
                 >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     d='M19.5 8.25l-7.5 7.5-7.5-7.5'
                   />
                 </svg>
@@ -161,26 +161,26 @@ const Filters = ({ setFilters, filters, priceRange }) => {
             </summary>
 
             <div
-              class='z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2'
+              className='z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2'
             >
-              <div class='w-96 rounded border border-gray-200 bg-white'>
-                <header class='flex items-center justify-between p-4'>
-                  <span class='text-sm text-gray-700'>
+              <div className='w-96 rounded border border-gray-200 bg-white'>
+                <header className='flex items-center justify-between p-4'>
+                  <span className='text-sm text-gray-700'>
                     Escoge un rango de precio
                   </span>
 
                   <button
                     type='button'
-                    class='text-sm text-gray-900 underline underline-offset-4'
+                    className='text-sm text-gray-900 underline underline-offset-4'
                   >
                     Reinicar
                   </button>
                 </header>
 
-                <div class='border-t border-gray-200 p-4'>
-                  <div class='flex justify-between gap-4'>
-                    <label for={minPriceId} class='flex items-center gap-2'>
-                      <span class='text-sm text-gray-600'>$</span>
+                <div className='border-t border-gray-200 p-4'>
+                  <div className='flex justify-between gap-4'>
+                    <label htmlFor={minPriceId} className='flex items-center gap-2'>
+                      <span className='text-sm text-gray-600'>$</span>
 
                       <input
                         type='number'
@@ -188,12 +188,12 @@ const Filters = ({ setFilters, filters, priceRange }) => {
                         placeholder='Desde'
                         value={filters.minPrice}
                         onChange={handleChangeMinPrice}
-                        class='w-full rounded-md border-gray-200 shadow-sm sm:text-sm text-black'
+                        className='w-full rounded-md border-gray-200 shadow-sm sm:text-sm text-black'
                       />
                     </label>
 
-                    <label for={maxPriceId} class='flex items-center gap-2'>
-                      <span class='text-sm text-gray-600'>$</span>
+                    <label htmlFor={maxPriceId} className='flex items-center gap-2'>
+                      <span className='text-sm text-gray-600'>$</span>
 
                       <input
                         type='number'
@@ -201,7 +201,7 @@ const Filters = ({ setFilters, filters, priceRange }) => {
                         placeholder='Hasta'
                         value={filters.maxPrice}
                         onChange={handleChangeMaxPrice}
-                        class='w-full rounded-md border-gray-200 shadow-sm sm:text-sm text-black'
+                        className='w-full rounded-md border-gray-200 shadow-sm sm:text-sm text-black'
                       />
                     </label>
                   </div>

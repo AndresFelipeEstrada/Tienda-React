@@ -3,7 +3,7 @@ import IconDeleteItem from '@icons/icon_close.png'
 import useCart from '../../hooks/useCart'
 import { memo } from 'react'
 
-const OrderItem = ({ product, index }) => {
+const OrderItem = memo(function OrderItem ({ product, index }) {
   const { removeFromCart } = useCart()
 
   return (
@@ -22,5 +22,6 @@ const OrderItem = ({ product, index }) => {
     </div>
   )
 }
+)
 
-export default memo(OrderItem)
+export default OrderItem

@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import useCart from '../../hooks/useCart'
 
-const ProductInfo = ({ productDetail }) => {
+const ProductInfo = memo(function ProductInfo ({ productDetail }) {
   const { productInCart, addToCart, removeFromCart } = useCart()
   const inProductInCart = productInCart(productDetail)
 
@@ -83,5 +84,6 @@ const ProductInfo = ({ productDetail }) => {
     </>
   )
 }
+)
 
 export default ProductInfo

@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import reviewIcon from '@icons/man.png'
 import { useReviewForm } from '../../hooks/useReviewForm'
 
-const Review = ({ userId }) => {
+const Review = memo(function Review ({ userId }) {
   const [reviews, handleChange, handleSubmitForm] = useReviewForm({ userId })
 
   return (
@@ -109,6 +110,5 @@ const Review = ({ userId }) => {
       </section>
     </>
   )
-}
-
+})
 export default Review
