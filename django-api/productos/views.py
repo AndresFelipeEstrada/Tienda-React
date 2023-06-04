@@ -103,9 +103,9 @@ class Categoria_APIView_Detail(APIView):
 
 class Review_APIView_List(APIView):
 
-    def get(self, request, format=None, *args, **kwargs):
-        review = Review.objects.all()
-        serializer = ReviewSerializer(review, many=True)
+    def get(self, request, pk, format=None, *args, **kwargs):
+        reviews = Review.objects.filter(producto_id=pk)
+        serializer = ReviewSerializer(reviews, many=True)
         reversed_data = serializer.data[::-1]
         return Response(reversed_data)
 

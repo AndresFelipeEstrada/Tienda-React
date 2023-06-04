@@ -1,23 +1,25 @@
-import { memo } from 'react'
-import useCart from '../../hooks/useCart'
+import { memo, useEffect, useState } from 'react'
 import StarRating from '../StarRating/StarRating'
+import Review from '../ProductReview/Review'
 
 const ProductInfo = memo(function ProductInfo ({ productDetail }) {
-  const { productInCart, addToCart, removeFromCart } = useCart()
-  const inProductInCart = productInCart(productDetail)
+  const [reviews, setReviews] = useState([])
+  useEffect(() => {
+    setReviews(productDetail?.reviews_info)
+  }, [productDetail])
 
   return (
     <>
       <div className='container px-5 py-24 mx-auto'>
         <div className='lg:w-4/5 mx-auto flex flex-wrap'>
-          <img alt='ecommerce' className='lg:w-1/2 w-full object-cover object-center rounded border border-gray-200' src={productDetail.imagen} />
+          <img alt='ecommerce' className='lg:w-1/2 w-full object-cover object-center rounded border border-gray-200' src={productDetail ? productDetail.imagen : ''} />
           <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
-            <h2 className='text-sm title-font text-gray-500 tracking-widest'>{productDetail.profesion}</h2>
-            <h1 className='text-headline text-3xl title-font font-medium mb-1'>{productDetail.nombre}</h1>
+            <h2 className='text-sm title-font text-gray-500 tracking-widest'>{productDetail ? productDetail.profesion : ''}</h2>
+            <h1 className='text-headline text-3xl title-font font-medium mb-1'>{productDetail ? productDetail.nombre : ''}</h1>
             <div className='flex mb-4'>
               <span className='flex items-center'>
                 <StarRating />
-                <span className='text-gray-600 ml-3'>{productDetail.reviews_info && productDetail.reviews_info ? productDetail.reviews_info.length : 0} Reviews</span>
+                <span className='text-gray-600 ml-3'>{reviews ? reviews.length : 0} Reviews</span>
               </span>
               <span className='flex ml-3 pl-3 py-2 border-l-2 border-gray-200'>
                 <a className='text-gray-500'>
@@ -37,7 +39,7 @@ const ProductInfo = memo(function ProductInfo ({ productDetail }) {
                 </a>
               </span>
             </div>
-            <p className='leading-relaxed text-paragraph'>{productDetail.descripcion}</p>
+            <p className='leading-relaxed text-paragraph'>{productDetail ? productDetail.descripcion : ''}</p>
             <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'>
               <span className='absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center'>
                 <svg fill='none' className='w-4 h-4' viewBox='0 0 24 24'>
@@ -46,17 +48,12 @@ const ProductInfo = memo(function ProductInfo ({ productDetail }) {
               </span>
             </div>
             <div className='flex'>
-              <span className='title-font font-medium text-2xl text-gray-900'>Precio: ${productDetail.precio}</span>
+              <span className='title-font font-medium text-2xl text-gray-900'>Precio: ${productDetail ? productDetail.precio : 0}</span>
 
               <button
                 className='flex ml-auto text-background-button bg-white-300 border border-background-button hover:bg-background-button hover:text-white py-2 px-6 focus:outline-none rounded'
-                onClick={() => {
-                  inProductInCart
-                    ? removeFromCart(productDetail)
-                    : addToCart(productDetail)
-                }}
               >
-                {inProductInCart ? 'Cancelar' : 'Contratar'}
+                Contactar
               </button>
 
               <button className='rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4'>
@@ -68,6 +65,10 @@ const ProductInfo = memo(function ProductInfo ({ productDetail }) {
           </div>
         </div>
       </div>
+      {
+      reviews && reviews.length >= 0 ? <Review reviews={reviews} setReviews={setReviews} id={productDetail.id} /> : null
+    }
+
     </>
   )
 }

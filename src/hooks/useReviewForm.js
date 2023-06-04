@@ -22,7 +22,6 @@ export const useReviewForm = ({ userId }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    console.log(name, value)
     setNewReview(prevState => ({
       ...prevState,
       [name]: value
@@ -34,7 +33,6 @@ export const useReviewForm = ({ userId }) => {
     try {
       await postReview(userId, newReview)
       const updatedReviews = await getReview(userId)
-      console.log(updatedReviews.data)
       setReviews(updatedReviews.data)
     } catch (error) {
       console.log('Error al crear la reseña:', error.message)
