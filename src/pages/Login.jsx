@@ -6,39 +6,45 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import logo from '@logos/logo_yard_sale.svg'
 import { useAuth } from '../hooks/useAuth'
+import getData from '../services/getAllProducts'
 
 const Login = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
 
-  const [magicWord, setMagicWord] = useState({
-    username: '',
+  const [iniciarSesion, setIniciarSesion] = useState({
+    correo: '',
     password: ''
   })
 
   const [error, setError] = useState(null)
 
-  const handleSubmit = useCallback((event) => {
+  const handleSubmit = useCallback(async (event) => {
     event.preventDefault()
 
-    if (magicWord.username === 'root' && magicWord.password === '123') {
-      login()
-      navigate('/')
+    const response = await getData()
+
+    const usuarioEncontrado = response.find(user => user.correo === iniciarSesion.correo && user.password === iniciarSesion.password)
+
+    if (!usuarioEncontrado) {
+      toast.error('Error al iniciar sesion')
+      setError('Error al iniciar sesion')
+      return
     }
 
-    toast.error('Error al iniciar sesion')
-    setError('Error al iniciar sesion')
-  }, [magicWord])
+    login()
+    navigate('/')
+  }, [iniciarSesion])
 
   const handleChangeUsername = (event) => {
-    setMagicWord(prevState => ({
+    setIniciarSesion(prevState => ({
       ...prevState,
-      username: event.target.value
+      correo: event.target.value
     }))
   }
 
   const handleChangePassword = (event) => {
-    setMagicWord(prevState => ({
+    setIniciarSesion(prevState => ({
       ...prevState,
       password: event.target.value
     }))
@@ -61,10 +67,10 @@ const Login = () => {
         <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
           <form className='flex flex-col '>
             <label htmlFor='email' className='text-sm font-bold mb-1 text-paragraph'>Email address</label>
-            <input type='text' defaultValue={magicWord.username} onChange={handleChangeUsername} placeholder='platzi@example.cm' className='bg-gray-100 rounded-lg h-8 text-paragraph text-base p-1 mb-5' />
+            <input type='text' defaultValue={iniciarSesion.correo} onChange={handleChangeUsername} placeholder='platzi@example.cm' className='bg-gray-100 rounded-lg h-8 text-paragraph text-base p-1 mb-5' />
 
             <label htmlFor='password' className='text-sm font-bold mb-1 text-paragraph'>Password</label>
-            <input type='password' defaultValue={magicWord.password} onChange={handleChangePassword} placeholder='*********' className='bg-gray-100 text-paragraph rounded-lg h-8 text-base p-1 mb-5' />
+            <input type='password' defaultValue={iniciarSesion.password} onChange={handleChangePassword} placeholder='*********' className='bg-gray-100 text-paragraph rounded-lg h-8 text-base p-1 mb-5' />
             {error && <p className='text-red-700'>{error}</p>}
             <button
               className='bg-background-button rounded-lg text-white w-full cursor-pointer text-base font-bold h-12 mt-3 mb-8'
