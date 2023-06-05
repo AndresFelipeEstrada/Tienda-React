@@ -1,18 +1,9 @@
-import { useState, useEffect } from 'react'
-import getReview from '../services/getReview'
+import { useState } from 'react'
 import postReview from '../services/postReview'
+import getReview from '../services/getReview'
 
-export const useReviewForm = ({ userId }) => {
-  const [reviews, setReviews] = useState([])
-
-  useEffect(() => {
-    const getAllReviews = async () => {
-      const response = await getReview(userId)
-      setReviews(response.data)
-    }
-
-    getAllReviews()
-  }, [])
+export const useReviewForm = ({ id, reviewsInfo }) => {
+  const [reviews, setReviews] = useState(reviewsInfo)
 
   const [newReview, setNewReview] = useState({
     titulo: '',
@@ -31,13 +22,13 @@ export const useReviewForm = ({ userId }) => {
   const handleSubmitForm = async (e) => {
     e.preventDefault()
     try {
-      await postReview(userId, newReview)
-      const updatedReviews = await getReview(userId)
+      await postReview(id, newReview)
+      const updatedReviews = await getReview(id)
       setReviews(updatedReviews.data)
     } catch (error) {
       console.log('Error al crear la reseña:', error.message)
     }
   }
 
-  return [reviews, handleChange, handleSubmitForm]
+  return { reviews, handleChange, handleSubmitForm }
 }

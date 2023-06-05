@@ -1,13 +1,8 @@
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 import StarRating from '../StarRating/StarRating'
 import Review from '../ProductReview/Review'
 
 const ProductInfo = memo(function ProductInfo ({ productDetail }) {
-  const [reviews, setReviews] = useState([])
-  useEffect(() => {
-    setReviews(productDetail?.reviews_info)
-  }, [productDetail])
-
   return (
     <>
       <div className='container px-5 py-24 mx-auto'>
@@ -19,7 +14,7 @@ const ProductInfo = memo(function ProductInfo ({ productDetail }) {
             <div className='flex mb-4'>
               <span className='flex items-center'>
                 <StarRating />
-                <span className='text-gray-600 ml-3'>{reviews ? reviews.length : 0} Reviews</span>
+                <span className='text-gray-600 ml-3'>{productDetail.reviews_info ? productDetail?.reviews_info.length : 0} Reviews</span>
               </span>
               <span className='flex ml-3 pl-3 py-2 border-l-2 border-gray-200'>
                 <a className='text-gray-500'>
@@ -66,7 +61,7 @@ const ProductInfo = memo(function ProductInfo ({ productDetail }) {
         </div>
       </div>
       {
-      reviews && reviews.length >= 0 ? <Review reviews={reviews} setReviews={setReviews} id={productDetail.id} /> : null
+      productDetail.reviews_info && productDetail?.reviews_info.length >= 0 ? <Review reviewsInfo={productDetail?.reviews_info} id={productDetail.id} /> : null
     }
 
     </>

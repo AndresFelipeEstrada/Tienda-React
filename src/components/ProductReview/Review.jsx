@@ -1,37 +1,11 @@
-import { memo, useState } from 'react'
+import { memo } from 'react'
 import reviewIcon from '@icons/man.png'
 import StarRating from '../StarRating/StarRating'
-import postReview from '../../services/postReview'
-import getReview from '../../services/getReview'
+import { useReviewForm } from '../../hooks/useReviewForm'
 
 const Review = memo(function Review (props) {
-  const { id, reviews, setReviews } = props
-
-  const [newReview, setNewReview] = useState({
-    titulo: '',
-    nombre: '',
-    mensaje: ''
-  })
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setNewReview(prevState => ({
-      ...prevState,
-      [name]: value
-    }))
-  }
-
-  const handleSubmitForm = async (e) => {
-    e.preventDefault()
-    try {
-      await postReview(id, newReview)
-      const updatedReviews = await getReview(id)
-      setReviews(updatedReviews.data)
-    } catch (error) {
-      console.log('Error al crear la reseña:', error.message)
-    }
-  }
-
+  const { id, reviewsInfo } = props
+  const { reviews, handleChange, handleSubmitForm } = useReviewForm({ id, reviewsInfo })
   return (
     <>
       <div className='flex justify-between'>
