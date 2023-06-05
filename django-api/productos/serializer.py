@@ -5,7 +5,7 @@ from .models import Product, Categoria, Review
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'nombre', 'profesion', 'correo',
+        fields = ('id', 'nombre', 'profesion', 'correo', 'password',
                   'descripcion', 'precio', 'imagen', 'categorias_info', 'reviews_info')
         ordering_fields = ['-id']
         ordering = ['-id']

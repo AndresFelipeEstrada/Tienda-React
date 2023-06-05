@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Categoria(models.Model):
@@ -21,6 +22,8 @@ class Product(models.Model):
     profesion = models.CharField(max_length=50, verbose_name='Profesion')
     telefono = models.CharField(max_length=15, verbose_name='Telefono')
     correo = models.EmailField(unique=True, verbose_name='Correo Electronico')
+    password = models.CharField(
+        max_length=128, null=False, default='default_password', verbose_name='Contrasena')
     descripcion = models.TextField(
         max_length=100, blank=True, verbose_name='Descripcion')
     precio = models.IntegerField(verbose_name='precio')

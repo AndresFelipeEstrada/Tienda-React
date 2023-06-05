@@ -4,7 +4,6 @@ from rest_framework import status
 from .serializer import ProductSerializer, CategoriaSerializer, ReviewSerializer
 from .models import Product, Categoria, Review
 from django.http import Http404
-from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
