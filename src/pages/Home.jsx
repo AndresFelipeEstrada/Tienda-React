@@ -37,7 +37,7 @@ const Home = () => {
       <section className='bg-white border-b'>
         <div className='container max-w-5xl mx-auto m-8'>
           <h2 className='w-full my-2 text-5xl font-bold leading-tight text-center text-headline'>
-            Title
+            Encuentra profesionales
           </h2>
           <div className='w-full mb-4'>
             <div className='h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t' />
@@ -45,10 +45,10 @@ const Home = () => {
           <div className='flex flex-wrap'>
             <div className='w-5/6 sm:w-1/2 p-6'>
               <h3 className='text-3xl text-headline font-bold leading-none mb-3'>
-                Lorem ipsum dolor sit amet
+                Conecta con potenciales clientes
               </h3>
               <p className='text-paragraph mb-8'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                Amplía tu alcance y hazte conocer en todo el mundo
               </p>
             </div>
             <div className='w-full sm:w-1/2 p-6'>
@@ -332,17 +332,19 @@ const Home = () => {
             <div className='w-full sm:w-1/2 p-6 mt-6'>
               <div className='align-middle'>
                 <h3 className='text-3xl text-headline font-bold leading-none mb-3'>
-                  Lorem ipsum dolor sit amet
+                  Encuentra profesionales cualificados
                 </h3>
                 <p className='text-paragraph mb-8'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+                  Conecta con una amplia variedad de expertos en su campo
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <Testimonial />
+
       <div className='bg-background-button'>
         <svg className='wave-top' viewBox='0 0 1439 147' version='1.1'>
           <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
@@ -368,14 +370,14 @@ const Home = () => {
       </div>
       <section className='container mx-auto text-center py-6 mb-12'>
         <h2 className='w-full my-2 text-5xl font-bold leading-tight text-center text-black'>
-          Buscar
+          Mas Informacion
         </h2>
         <div className='w-full mb-4'>
           <div className='h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t' />
         </div>
-        <h3 className='my-4 text-3xl leading-tight text-black'>
+        {/* <h3 className='my-4 text-3xl leading-tight text-black'>
           Lorem, ipsum.
-        </h3>
+        </h3> */}
         <button className='mx-auto lg:mx-0 hover:underline bg-background-button text-button-text font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'>
           Buscar
         </button>
