@@ -18,16 +18,19 @@ class Categoria(models.Model):
 
 
 class Product(models.Model):
-    nombre = models.CharField(max_length=50, verbose_name='Nombre')
-    profesion = models.CharField(max_length=50, verbose_name='Profesion')
-    telefono = models.CharField(max_length=15, verbose_name='Telefono')
+    nombre = models.CharField(
+        max_length=50, blank=False, verbose_name='Nombre')
+    profesion = models.CharField(
+        max_length=50, blank=False, verbose_name='Profesion')
+    telefono = models.CharField(
+        max_length=15, blank=False, verbose_name='Telefono')
     correo = models.EmailField(unique=True, verbose_name='Correo Electronico')
     password = models.CharField(
-        max_length=128, null=False, default='default_password', verbose_name='Contrasena')
+        max_length=128, null=False, blank=False, default='default_password', verbose_name='Contrasena')
     descripcion = models.TextField(
-        max_length=100, blank=True, verbose_name='Descripcion')
-    precio = models.IntegerField(verbose_name='precio')
-    imagen = models.CharField(max_length=250, verbose_name='Ruta imagen')
+        max_length=100, blank=False, verbose_name='Descripcion')
+    precio = models.IntegerField(verbose_name='precio', blank=False)
+    imagen = models.ImageField(upload_to="images/", null=False)
     creado = models.DateTimeField(
         auto_now_add=True, verbose_name='fecha de creacion')
     editado = models.DateTimeField(
