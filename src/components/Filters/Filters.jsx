@@ -5,7 +5,7 @@ const Filters = ({ setFilters, filters, priceRange }) => {
   const maxPriceId = useId()
   const categoryId = useId()
 
-  const [selectedOption, setSelectedOption] = useState(null)
+  const [selectedOption, setSelectedOption] = useState('')
 
   const handleChangeMinPrice = useCallback((event) => {
     setFilters(prevState => ({
@@ -126,6 +126,25 @@ const Filters = ({ setFilters, filters, priceRange }) => {
 
                       <span className='text-sm font-medium text-gray-700'>
                         Limpieza
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='Asesoria'
+                        checked={selectedOption === 'Asesoria'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Asesoria
                       </span>
                     </label>
                   </li>
