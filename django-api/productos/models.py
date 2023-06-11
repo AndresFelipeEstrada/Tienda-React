@@ -2,22 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=100, verbose_name='Nombre')
-    creado = models.DateTimeField(
-        auto_now_add=True, verbose_name='Fecha de creacion')
-    editado = models.DateTimeField(
-        auto_now_add=True, verbose_name='Fecha de actualizacion')
-
-    class Meta:
-        verbose_name = 'Categoria'
-        verbose_name_plural = 'Categorias'
-
-    def __str__(self):
-        return self.nombre
-
-
 class Product(models.Model):
+    class Categoria(models.TextChoices):
+        INGENIERO = 'INGENIERO',
+        DISENO = 'DISENO',
+        LIMPIEZA = 'LIMPIEZA',
+        ASESORIA = 'ASESORIA',
+        BELLEZA = 'BELLEZA',
+
     nombre = models.CharField(
         max_length=50, blank=False, verbose_name='Nombre')
     profesion = models.CharField(
@@ -35,8 +27,8 @@ class Product(models.Model):
         auto_now_add=True, verbose_name='fecha de creacion')
     editado = models.DateTimeField(
         auto_now=True, verbose_name='fecha de actualizacion')
-    categoria = models.ManyToManyField(
-        Categoria, verbose_name='Categorias', blank=True, related_name="productos")
+    categoria = models.CharField(
+        max_length=100, choices=Categoria.choices, default=Categoria.INGENIERO)
 
     class Meta:
         verbose_name = 'Producto'
@@ -44,10 +36,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.nombre
-
-    def categorias_info(self):
-        categorias = self.categoria.all()
-        return [{"id": categoria.id, "nombre": categoria.nombre} for categoria in categorias]
 
     def reviews_info(self):
         reviews = self.review_set.all()
