@@ -60,7 +60,7 @@ const Login = () => {
             alt='logo'
           />
           <h2 className='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-headline'>
-            Ingresar a tu cuenta
+            Ingresa a tu cuenta
           </h2>
         </div>
 
@@ -75,13 +75,13 @@ const Login = () => {
             <button
               className='bg-background-button rounded-lg text-white w-full cursor-pointer text-base font-bold h-12 mt-3 mb-8'
               onClick={handleSubmit}
-            >Log in
+            >Iniciar Sesion
             </button>
           </form>
 
-          <Link to='/password-recovery' className='text-background-button text-sm text-center no-underline mb-12'>Forgot my password</Link>
+          <Link to='/password-recovery' className='text-background-button text-sm text-center no-underline mb-12'>Olvide la contrasena</Link>
 
-          <Link onClick={() => window.scrollTo(0, 0)} to='/signup' className='bg-white rounded-lg text-background-button w-full cursor-pointer text-sm font-bold h-12 border-2 border-solid border-background-button no-underline flex items-center justify-center'>Sign up</Link>
+          <Link onClick={() => window.scrollTo(0, 0)} to='/signup' className='bg-white rounded-lg text-background-button w-full cursor-pointer text-sm font-bold h-12 border-2 border-solid border-background-button no-underline flex items-center justify-center'>Registrarme</Link>
 
         </div>
       </div>
