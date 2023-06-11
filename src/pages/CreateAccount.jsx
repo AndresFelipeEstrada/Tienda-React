@@ -9,7 +9,6 @@ const CreateAccount = () => {
     event.preventDefault()
 
     const { nombre, profesion, email, password, telefono, descripcion, precio, imagen, categoria } = event.target
-
     const datos = {
       nombre: nombre.value,
       profesion: profesion.value,
@@ -18,18 +17,12 @@ const CreateAccount = () => {
       telefono: telefono.value,
       descripcion: descripcion.value,
       precio: precio.value,
-      imagen: imagen.files[0], // Append the actual file object
-      categorias_info: [
-        {
-          id: parseInt(categoria.value),
-          nombre: categoria.options[categoria.selectedIndex].innerText
-        }
-      ]
+      imagen: imagen.files[0],
+      categoria: categoria.value
     }
 
     try {
-      const data = await postProduct(datos)
-      console.log(data)
+      return await postProduct(datos)
     } catch (error) {
       console.log('error in createAccount component', error)
     }
@@ -97,11 +90,11 @@ const CreateAccount = () => {
                 <label htmlFor='categorias' className='block mb-2 text-sm font-medium text-headline'>Selecciona la categoria</label>
                 <select name='categoria' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-gray-400'>
                   <option value=''>Categorias</option>
-                  <option value='1'>Tecnico</option>
-                  <option value='2'>Mantenimiento</option>
-                  <option value='3'>Limpieza</option>
-                  <option value='4'>Asesoria</option>
-                  <option value='5'>Diseño</option>
+                  <option value='INGENIERO'>Ingeniero</option>
+                  <option value='DISENO'>Diseño</option>
+                  <option value='LIMPIEZA'>Limpieza</option>
+                  <option value='ASESORIA'>Asesoria</option>
+                  <option value='BELLEZA'>Belleza</option>
                 </select>
               </div>
 

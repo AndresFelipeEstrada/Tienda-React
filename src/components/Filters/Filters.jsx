@@ -107,14 +107,14 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterPreOrder'
-                        value='Ingeniero'
-                        checked={selectedOption === 'Ingeniero'}
+                        value='INGENIERO'
+                        checked={selectedOption === 'INGENIERO'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
 
                       <span className='text-sm font-medium text-gray-700'>
-                        Tecnicos
+                        Ingeniero
                       </span>
                     </label>
                   </li>
@@ -127,8 +127,27 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterOutOfStock'
-                        value='Limpieza'
-                        checked={selectedOption === 'Limpieza'}
+                        value='DISENO'
+                        checked={selectedOption === 'DISENO'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Diseño
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='LIMPIEZA'
+                        checked={selectedOption === 'LIMPIEZA'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
@@ -146,14 +165,33 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterOutOfStock'
-                        value='Asesoria'
-                        checked={selectedOption === 'Asesoria'}
+                        value='ASESORIA'
+                        checked={selectedOption === 'ASESORIA'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
 
                       <span className='text-sm font-medium text-gray-700'>
                         Asesoria
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='BELLEZA'
+                        checked={selectedOption === 'BELLEZA'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Belleza
                       </span>
                     </label>
                   </li>
