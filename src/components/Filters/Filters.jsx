@@ -1,6 +1,6 @@
 import { memo, useCallback, useId, useState } from 'react'
 
-const Filters = ({ setFilters, filters, priceRange }) => {
+const Filters = ({ setFilters, filters }) => {
   const minPriceId = useId()
   const maxPriceId = useId()
   const categoryId = useId()
@@ -28,6 +28,14 @@ const Filters = ({ setFilters, filters, priceRange }) => {
     }))
     setSelectedOption(event.target.value)
   }, [filters])
+
+  const clearFilters = () => {
+    setFilters({
+      category: 'todas',
+      minPrice: 0,
+      maxPrice: 1000000
+    })
+  }
 
   return (
     <>
@@ -67,6 +75,7 @@ const Filters = ({ setFilters, filters, priceRange }) => {
                   <button
                     type='button'
                     className='text-sm text-gray-900 underline underline-offset-4'
+                    onClick={clearFilters}
                   >
                     Reiniciar
                   </button>
@@ -191,6 +200,7 @@ const Filters = ({ setFilters, filters, priceRange }) => {
                   <button
                     type='button'
                     className='text-sm text-gray-900 underline underline-offset-4'
+                    onClick={clearFilters}
                   >
                     Reinicar
                   </button>
