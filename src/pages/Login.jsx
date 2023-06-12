@@ -25,14 +25,13 @@ const Login = () => {
     const response = await getData()
 
     const usuarioEncontrado = response.find(user => user.correo === iniciarSesion.correo && user.password === iniciarSesion.password)
-
     if (!usuarioEncontrado) {
       toast.error('Error al iniciar sesion')
       setError('Error al iniciar sesion')
       return
     }
 
-    login()
+    login(usuarioEncontrado)
     navigate('/')
   }, [iniciarSesion])
 

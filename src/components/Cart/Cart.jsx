@@ -4,16 +4,18 @@ import useCart from '../../hooks/useCart'
 import Menu from '../Menu/Menu'
 import MyOrder from '../../containers/MyOrder'
 import useToggle from '../../hooks/useToggle'
+import { useAuth } from '../../hooks/useAuth'
 
 const Cart = () => {
   const { cart } = useCart()
   const { toggle, toggleOrders, setToggleOrders, handleOrder, handleCart } = useToggle()
+  const { userInfo } = useAuth()
 
   return (
     <>
       <div className='list-none p-0 m-0 flex items-center h-16'>
 
-        <div className='text-black text-sm mr-3.5 cursor-pointer hidden sm:block' onClick={handleOrder}>usuario@example.com</div>
+        <div className='text-black text-sm mr-3.5 cursor-pointer hidden sm:block' onClick={handleOrder}>{userInfo.correo}</div>
 
         <div
           className='cursor-pointer relative'
