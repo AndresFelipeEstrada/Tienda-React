@@ -13,12 +13,12 @@ const ProductItem = memo(function ProductItem ({ product }) {
           <strong className='text-lg font-bold text-black truncate block capitalize'>{product.nombre}</strong>
           <p className='text-lg font-bold text-paragraph truncate block capitalize'>{product.profesion}</p>
 
-          <div className='flex items-center'>
+          {/* <div className='flex items-center'>
             <p className='text-lg font-semibold text-black cursor-auto my-3'>${product.precio}</p>
             <del>
               <p className='text-sm text-gray-600 cursor-auto ml-2'>$199</p>
             </del>
-          </div>
+          </div> */}
         </div>
       </Link>
 

@@ -24,14 +24,14 @@ const Review = memo(function Review (props) {
                 <div className=' break-normal flex-auto flex flex-col items-center justify-center'>
                   <div className=' flex flex-col'>
                     <img className='rounded-full h-14 w-14' src={reviewIcon} alt='photo' />
-                    <span className='text-headline mt-2'>{review ? review.nombre : ''}</span>
+                    <span className='text-headline mt-2 truncate'>{review ? review.nombre : ''}</span>
                   </div>
                 </div>
 
                 <div className='flex-auto w-80 my-5'>
                   <strong className=' text-headline'>{review ? review.titulo : ''}</strong>
                   <StarRating />
-                  <p className=' text-paragraph'>
+                  <p className=' text-paragraph truncate'>
                     {review ? review.mensaje : ''}
                   </p>
                 </div>
@@ -65,7 +65,7 @@ const Review = memo(function Review (props) {
                 <textarea onChange={handleChange} name='mensaje' className='border p-1 m-1 text-paragraph border-paragraph  w-full h-32 mt-3 resize-none' placeholder='Tu review' cols='30' rows='10' required />
                 <button
                   className=' p-1 m-1 bg-background-button text-white w-full cursor-pointer text-base font-bold h-12 mt-3 mb-8'
-                >Post Review
+                >Enviar Review
                 </button>
               </div>
             </form>
