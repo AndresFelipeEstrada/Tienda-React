@@ -2,7 +2,7 @@ const Modal = ({ onClose, productDetail }) => {
   const imagen = '../../../django-api/'
   return (
     <>
-      <section className='rounded-lg bg-white border border-black shadow-lg inset-y-0 inset-x-0 fixed w-10/12 h-4/5 m-auto'>
+      <section className='flex items-center rounded-lg antialiased overflow-x-hidden bg-white border border-black shadow-lg inset-y-0 inset-x-0 fixed w-10/12 h-4/5 m-auto'>
         <div className='container px-5 py-2 mx-auto'>
           <button
             onClick={onClose}
