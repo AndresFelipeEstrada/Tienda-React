@@ -1,25 +1,15 @@
-// import './menu.css'
 
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
 
 const Menu = () => {
-  const { logout } = useAuth()
   return (
-    <div className='absolute h-auto bg-white border-solid border-2 border-gray-200 rounded-md pt-20 pr-20 pl-20 right-12 top-16'>
-      <ul className='list-none p-0 m-0'>
-        <li className='text-end font-bold'>
-          <Link to='/orders' className='inline-block text-black no-underline mb-5'>My orders</Link>
-        </li>
+    <div class='absolute right-64 top-16 z-10 mt-2 w-56 origin-top-right rounded-md text-black bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none' role='menu' aria-orientation='vertical' aria-labelledby='menu-button' tabindex='-1'>
+      <div class='py-1' role='none'>
+        <Link href='#' class='text-gray-700 block px-4 py-2 text-sm' role='menuitem' tabindex='-1' id='menu-item-0'>Configuracion</Link>
+        <Link href='#' class='text-gray-700 block px-4 py-2 text-sm' role='menuitem' tabindex='-1' id='menu-item-1'>Soporte</Link>
+        <Link href='#' class='text-gray-700 block px-4 py-2 text-sm' role='menuitem' tabindex='-1' id='menu-item-2'>Licencias</Link>
 
-        <li className='text-end font-bold'>
-          <Link to='/account' className='inline-block text-black no-underline mb-5'>My account</Link>
-        </li>
-
-        <li className='text-end pt-5 border-t'>
-          <Link to='/login' className='inline-block text-black mb-5 bg-background-button text-sm no-underline' onClick={() => logout()}>Sign out</Link>
-        </li>
-      </ul>
+      </div>
     </div>
   )
 }
