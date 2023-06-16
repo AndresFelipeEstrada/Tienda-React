@@ -2,8 +2,8 @@ const Modal = ({ onClose, productDetail }) => {
   const imagen = '../../../django-api/'
   return (
     <>
-      <section className='rounded-lg bg-white shadow-lg inset-y-0 inset-x-0 fixed w-10/12 h-4/5 m-auto'>
-        <div className='container px-6 py-10 mx-auto'>
+      <section className='rounded-lg bg-white border border-black shadow-lg inset-y-0 inset-x-0 fixed w-10/12 h-4/5 m-auto'>
+        <div className='container px-5 py-2 mx-auto'>
           <button
             onClick={onClose}
             type='button' className='absolute p-5 top-0 right-0 bg-white rounded-md inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'
@@ -13,15 +13,15 @@ const Modal = ({ onClose, productDetail }) => {
               <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
             </svg>
           </button>
-          <div className='lg:flex lg:items-center lg:-mx-10'>
+          <div className='flex items-center -mx-10'>
             <div className='lg:w-1/2 lg:mx-10'>
               <h1 className='text-2xl font-semibold text-headline capitalize lg:text-3xl'>Contactame</h1>
 
-              <p className='mt-4 text-paragraph '>
+              <p className='mt-2 text-paragraph '>
                 Enviame un mensaje y pronto me pondré en contacto contigo.
               </p>
 
-              <form className='mt-12'>
+              <form className='mt-5'>
                 <div className='-mx-2 md:items-center md:flex'>
                   <div className='flex-1 px-2'>
                     <label className='block mb-2 text-sm text-gray-600'>Nombre Completo</label>
@@ -34,21 +34,21 @@ const Modal = ({ onClose, productDetail }) => {
                   </div>
                 </div>
 
-                <div className='w-full mt-4'>
+                <div className='w-full mt-1'>
                   <label className='block mb-2 text-sm text-gray-600'>Mensaje</label>
-                  <textarea className='block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40' placeholder='Escribe un mensaje...' />
+                  <textarea className='block w-full h-5 px-5 py-3 mt-2 resize-none text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40' placeholder='Escribe un mensaje...' />
                 </div>
 
-                <button className='w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-button-text capitalize transition-colors duration-300 transform bg-background-button rounded-md hover:bg-button-text hover:text-background-button border hover:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+                <button className='w-full px-6 py-3 mt-2 text-sm font-medium tracking-wide text-button-text capitalize transition-colors duration-300 transform bg-background-button rounded-md hover:bg-button-text hover:text-background-button border hover:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
                   Enviar
                 </button>
               </form>
             </div>
 
             <div className='mt-12 lg:flex lg:mt-0 lg:flex-col lg:items-center lg:w-1/2 lg:mx-10'>
-              <img className='hidden object-cover mx-auto rounded-full lg:block shrink-0 w-96 h-96' src={productDetail && `${imagen}${productDetail.imagen}`} />
+              <img className='hidden object-cover mx-auto rounded-full lg:block shrink-0 w-60 h-60' src={productDetail && `${imagen}${productDetail.imagen}`} />
 
-              <div className='mt-6 space-y-8 md:mt-8'>
+              <div className='mt-2 space-y-8'>
                 <p className='flex items-start -mx-2'>
                   <svg xmlns='http://www.w3.org/2000/svg' className='w-6 h-6 mx-2 text-blue-500 dark:text-blue-400' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth='2'>
                     <path strokeLinecap='round' strokeLinejoin='round' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' />
