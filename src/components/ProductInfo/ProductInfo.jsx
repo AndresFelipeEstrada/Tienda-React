@@ -50,7 +50,7 @@ const ProductInfo = memo(function ProductInfo ({ productDetail }) {
               </span>
             </div>
             <div className='flex'>
-              <span className='title-font font-medium text-2xl text-gray-900'>Precio: ${productDetail ? productDetail.precio : 0}</span>
+              {/* <span className='title-font font-medium text-2xl text-gray-900'>Precio: ${productDetail ? productDetail.precio : 0}</span> */}
 
               <button
                 onClick={() => setshow(true)}

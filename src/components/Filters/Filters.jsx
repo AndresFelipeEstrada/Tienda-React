@@ -1,25 +1,9 @@
 import { memo, useCallback, useId, useState } from 'react'
 
 const Filters = ({ setFilters, filters }) => {
-  const minPriceId = useId()
-  const maxPriceId = useId()
   const categoryId = useId()
 
   const [selectedOption, setSelectedOption] = useState('')
-
-  const handleChangeMinPrice = useCallback((event) => {
-    setFilters(prevState => ({
-      ...prevState,
-      minPrice: event.target.value
-    }))
-  }, [filters])
-
-  const handleChangeMaxPrice = useCallback((event) => {
-    setFilters(prevState => ({
-      ...prevState,
-      maxPrice: event.target.value
-    }))
-  }, [filters])
 
   const handleChangeCategory = useCallback((event) => {
     setFilters(prevState => ({
@@ -107,14 +91,34 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterPreOrder'
-                        value='INGENIERO'
-                        checked={selectedOption === 'INGENIERO'}
+                        value='PINTOR'
+                        checked={selectedOption === 'PINTOR'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
 
                       <span className='text-sm font-medium text-gray-700'>
-                        Ingeniero
+                        Pintor
+                      </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label
+                      htmlFor='FilterPreOrder'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterPreOrder'
+                        value='ALBAÑIL'
+                        checked={selectedOption === 'ALBAÑIL'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Albañil
                       </span>
                     </label>
                   </li>
@@ -127,14 +131,14 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterOutOfStock'
-                        value='DISENO'
-                        checked={selectedOption === 'DISENO'}
+                        value='FONTANERO'
+                        checked={selectedOption === 'FONTANERO'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
 
                       <span className='text-sm font-medium text-gray-700'>
-                        Diseño
+                        Fontanero
                       </span>
                     </label>
                   </li>
@@ -146,14 +150,14 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterOutOfStock'
-                        value='LIMPIEZA'
-                        checked={selectedOption === 'LIMPIEZA'}
+                        value='CARPINTERO'
+                        checked={selectedOption === 'CARPINTERO'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
 
                       <span className='text-sm font-medium text-gray-700'>
-                        Limpieza
+                        Carpintero
                       </span>
                     </label>
                   </li>
@@ -165,14 +169,14 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterOutOfStock'
-                        value='ASESORIA'
-                        checked={selectedOption === 'ASESORIA'}
+                        value='ELECTRICISTA'
+                        checked={selectedOption === 'ELECTRICISTA'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
 
                       <span className='text-sm font-medium text-gray-700'>
-                        Asesoria
+                        Electricista
                       </span>
                     </label>
                   </li>
@@ -184,14 +188,109 @@ const Filters = ({ setFilters, filters }) => {
                       <input
                         type='checkbox'
                         id='FilterOutOfStock'
-                        value='BELLEZA'
-                        checked={selectedOption === 'BELLEZA'}
+                        value='CERRAJERO'
+                        checked={selectedOption === 'CERRAJERO'}
                         onChange={handleChangeCategory}
                         className='h-5 w-5 rounded border-gray-300'
                       />
 
                       <span className='text-sm font-medium text-gray-700'>
-                        Belleza
+                        Cerrajero
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='ELECTRONICO'
+                        checked={selectedOption === 'ELECTRONICO'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Electronico
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='JARDINERO'
+                        checked={selectedOption === 'JARDINERO'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Jardinero
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='TECNICO'
+                        checked={selectedOption === 'TECNICO'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Tecnico
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='MASAJISTA'
+                        checked={selectedOption === 'MASAJISTA'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Masajista
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      htmlFor='FilterOutOfStock'
+                      className='inline-flex items-center gap-2'
+                    >
+                      <input
+                        type='checkbox'
+                        id='FilterOutOfStock'
+                        value='MANICURISTA'
+                        checked={selectedOption === 'MANICURISTA'}
+                        onChange={handleChangeCategory}
+                        className='h-5 w-5 rounded border-gray-300'
+                      />
+
+                      <span className='text-sm font-medium text-gray-700'>
+                        Manicurista
                       </span>
                     </label>
                   </li>
@@ -201,82 +300,6 @@ const Filters = ({ setFilters, filters }) => {
           </details>
         </div>
 
-        <div className='relative'>
-          <details className='group [&_summary::-webkit-details-marker]:hidden'>
-            <summary
-              className='flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600'
-            >
-              <span className='text-sm font-medium'> Precio </span>
-
-              <span className='transition group-open:-rotate-180'>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth='1.5'
-                  stroke='currentColor'
-                  className='h-4 w-4'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M19.5 8.25l-7.5 7.5-7.5-7.5'
-                  />
-                </svg>
-              </span>
-            </summary>
-
-            <div
-              className='z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2'
-            >
-              <div className='w-96 rounded border border-gray-200 bg-white'>
-                <header className='flex items-center justify-between p-4'>
-                  <span className='text-sm text-gray-700'>
-                    Escoge un rango de precio
-                  </span>
-
-                  <button
-                    type='button'
-                    className='text-sm text-gray-900 underline underline-offset-4'
-                    onClick={clearFilters}
-                  >
-                    Reinicar
-                  </button>
-                </header>
-
-                <div className='border-t border-gray-200 p-4'>
-                  <div className='flex justify-between gap-4'>
-                    <label htmlFor={minPriceId} className='flex items-center gap-2'>
-                      <span className='text-sm text-gray-600'>$</span>
-
-                      <input
-                        type='number'
-                        id={minPriceId}
-                        placeholder='Desde'
-                        value={filters.minPrice}
-                        onChange={handleChangeMinPrice}
-                        className='w-full rounded-md border-gray-200 shadow-sm sm:text-sm text-black'
-                      />
-                    </label>
-
-                    <label htmlFor={maxPriceId} className='flex items-center gap-2'>
-                      <span className='text-sm text-gray-600'>$</span>
-
-                      <input
-                        type='number'
-                        id={maxPriceId}
-                        placeholder='Hasta'
-                        value={filters.maxPrice}
-                        onChange={handleChangeMaxPrice}
-                        className='w-full rounded-md border-gray-200 shadow-sm sm:text-sm text-black'
-                      />
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </details>
-        </div>
       </div>
     </>
 

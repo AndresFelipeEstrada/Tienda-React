@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './header.css'
 import menu from '@icons/icon_menu.svg'
-import logo from '@logos/logo_yard_sale.svg'
+import logo from '@logos/contratame-bg.png'
 
 import Cart from '../Cart/Cart'
 import { useAuth } from '../../hooks/useAuth'
@@ -16,7 +16,7 @@ const Header = () => {
 
             <div className=''>
               <Link to='/'>
-                <img className='h-12' src={logo} alt='logo' />
+                <img className='h-24 box-content' src={logo} alt='logo' />
               </Link>
             </div>
 

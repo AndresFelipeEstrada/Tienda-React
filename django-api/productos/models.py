@@ -4,11 +4,17 @@ from django.contrib.auth.models import User
 
 class Product(models.Model):
     class Categoria(models.TextChoices):
-        INGENIERO = 'INGENIERO',
-        DISENO = 'DISENO',
-        LIMPIEZA = 'LIMPIEZA',
-        ASESORIA = 'ASESORIA',
-        BELLEZA = 'BELLEZA',
+        PINTOR = 'PINTOR',
+        ALBAÑIL = 'ALBAÑIL',
+        FONTANERO = 'FONTANERO',
+        CARPINTERO = 'CARPINTERO',
+        ELECTRICISTA = 'ELECTRICISTA',
+        CERRAJERO = 'CERRAJERO',
+        ELECTRONICO = 'ELECTRONICO',
+        JARDINERO = 'JARDINERO',
+        TECNICO = 'TECNICO',
+        MASAJISTA = 'MASAJISTA',
+        MANICURISTA = 'MANICURISTA'
 
     nombre = models.CharField(
         max_length=50, blank=False, verbose_name='Nombre')
@@ -20,15 +26,14 @@ class Product(models.Model):
     password = models.CharField(
         max_length=128, null=False, blank=False, default='default_password', verbose_name='Contrasena')
     descripcion = models.TextField(
-        max_length=100, blank=False, verbose_name='Descripcion')
-    precio = models.IntegerField(verbose_name='precio', blank=False)
+        max_length=999, blank=False, verbose_name='Descripcion')
     imagen = models.ImageField(upload_to="images/", null=False)
     creado = models.DateTimeField(
         auto_now_add=True, verbose_name='fecha de creacion')
     editado = models.DateTimeField(
         auto_now=True, verbose_name='fecha de actualizacion')
     categoria = models.CharField(
-        max_length=100, choices=Categoria.choices, default=Categoria.INGENIERO)
+        max_length=100, choices=Categoria.choices, default=Categoria.TECNICO)
 
     class Meta:
         verbose_name = 'Producto'

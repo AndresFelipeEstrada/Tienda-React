@@ -1,4 +1,4 @@
-import logo from '@logos/logo_yard_sale.svg'
+import logo from '@logos/contratame-bg.png'
 
 const Footer = () => {
   return (
@@ -6,7 +6,7 @@ const Footer = () => {
       <div className='container mx-auto px-8'>
         <div className='w-full flex flex-col md:flex-row py-6'>
           <div className='flex-1'>
-            <img className='h-10' src={logo} alt='' />
+            <img className='h-20' src={logo} alt='' />
           </div>
           <div className='flex-1'>
             <p className='uppercase text-gray-500 md:mb-6'>Links</p>

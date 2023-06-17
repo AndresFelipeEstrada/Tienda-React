@@ -4,7 +4,7 @@ import { Toaster, toast } from 'sonner'
 import { useCallback, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import logo from '@logos/logo_yard_sale.svg'
+import logo from '@logos/contratame-bg.png'
 import { useAuth } from '../hooks/useAuth'
 import getData from '../services/getAllProducts'
 
@@ -51,10 +51,10 @@ const Login = () => {
 
   return (
     <>
-      <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 '>
+      <div className='flex min-h-full flex-1 flex-col justify-center px-6 pb-32 lg:px-8 '>
         <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
           <img
-            className='mx-auto h-10 w-auto'
+            className='mx-auto h-15 box-content'
             src={logo}
             alt='logo'
           />

@@ -11,7 +11,7 @@ const postProduct = async (datos) => {
         })
         return response.data
     } catch (error) {
-        console.log('error in postReview', error.message)
+        console.log('error en postReview', error.message)
     }
 }
 

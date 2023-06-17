@@ -1,35 +1,33 @@
+import { Link, useNavigate } from 'react-router-dom'
 import postProduct from '../services/postProduct'
 
 const CreateAccount = () => {
-  // const nameId = useId()
-  // const emailId = useId()
-  // const passwordId = useId()
-
+  const navigate = useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const { nombre, profesion, email, password, telefono, descripcion, precio, imagen, categoria } = event.target
-    const datos = {
-      nombre: nombre.value,
-      profesion: profesion.value,
-      correo: email.value,
-      password: password.value,
-      telefono: telefono.value,
-      descripcion: descripcion.value,
-      precio: precio.value,
-      imagen: imagen.files[0],
-      categoria: categoria.value
-    }
+    const { nombre, profesion, email, password, telefono, descripcion, imagen, categoria } = event.target
+
+    const formData = new FormData()
+    formData.append('nombre', nombre.value)
+    formData.append('profesion', profesion.value)
+    formData.append('correo', email.value)
+    formData.append('password', password.value)
+    formData.append('telefono', telefono.value)
+    formData.append('descripcion', descripcion.value)
+    formData.append('imagen', imagen.files[0])
+    formData.append('categoria', categoria.value)
 
     try {
-      return await postProduct(datos)
+      await postProduct(formData)
+      navigate('/product-list')
     } catch (error) {
-      console.log('error in createAccount component', error)
+      console.log('Error in createAccount component', error)
     }
   }
 
   return (
-    <section className='bg-gray-50'>
+    <section className='bg-gray-50 py-12'>
       <div className='flex flex-col flex-1 items-center justify-center px-6 py-8 mx-auto lg:py-0'>
         <a href='#' className='flex items-center mb-6 text-2xl font-semibold text-headline'>
           {/* <img className='w-8 h-8 mr-2' src='https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg' alt='logo' /> */}
@@ -77,11 +75,6 @@ const CreateAccount = () => {
               </div>
 
               <div>
-                <label htmlFor='precio' className='block mb-2 text-sm font-medium text-headline'>Precio</label>
-                <input type='number' name='precio' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 placeholder-gray-500' placeholder='500.000' required />
-              </div>
-
-              <div>
                 <label htmlFor='file_input' className='block mb-2 text-sm font-medium text-headline'>Subir Imagen</label>
                 <input id='file_input' type='file' name='imagen' className='block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-priary-600 focus:border-primary-600 placeholder-background-button' />
               </div>
@@ -90,11 +83,17 @@ const CreateAccount = () => {
                 <label htmlFor='categorias' className='block mb-2 text-sm font-medium text-headline'>Selecciona la categoria</label>
                 <select name='categoria' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-gray-400'>
                   <option value=''>Categorias</option>
-                  <option value='INGENIERO'>Ingeniero</option>
-                  <option value='DISENO'>Diseño</option>
-                  <option value='LIMPIEZA'>Limpieza</option>
-                  <option value='ASESORIA'>Asesoria</option>
-                  <option value='BELLEZA'>Belleza</option>
+                  <option value='PINTOR'>PINTOR</option>
+                  <option value='ALBAÑIL'>ALBAÑIL</option>
+                  <option value='FONTANERO'>FONTANERO</option>
+                  <option value='CARPINTERO'>CARPINTERO</option>
+                  <option value='ELECTRICISTA'>ELECTRICISTA</option>
+                  <option value='CERRAJERO'>CERRAJERO</option>
+                  <option value='ELECTRONICO'>ELECTRONICO</option>
+                  <option value='JARDINERO'>JARDINERO</option>
+                  <option value='TECNICO'>TECNICO</option>
+                  <option value='MASAJISTA'>MASAJISTA</option>
+                  <option value='MANICURISTA'>MANICURISTA</option>
                 </select>
               </div>
 
@@ -108,9 +107,12 @@ const CreateAccount = () => {
                 </div>
 
               </div>
-              <button type='submit' className='w-full bg-background-button text-button-text focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Crear cuenta</button>
+              <button
+                type='submit' className='w-full bg-background-button text-button-text focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+              >Crear cuenta
+              </button>
               <p className='text-sm font-light text-paragraph'>
-                ¿Ya tienes una cuenta? <a href='#' className='font-medium text-black hover:underline'>Iniciar sesion</a>
+                ¿Ya tienes una cuenta? <Link to='/login' className='font-medium text-black hover:underline'>Iniciar sesion</Link>
               </p>
             </form>
           </div>
